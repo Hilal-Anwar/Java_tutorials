@@ -1,0 +1,21 @@
+package book;
+
+import java.util.Scanner;
+
+/*
+16. Write a program to input a word and count the number of book.vowels.
+ */
+public class vowels {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a word");
+        String n=scanner.nextLine();
+        n=n.toLowerCase();
+        int c=0;
+        for (int i = 0; i < n.length(); i++) {
+            if(n.charAt(i)=='a'||n.charAt(i)=='e'||n.charAt(i)=='i'||n.charAt(i)=='o'||n.charAt(i)=='u')
+                c++;
+        }
+        System.out.println("Number of book.vowels "+c);
+    }
+}
