@@ -1,38 +1,26 @@
 package book;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
+import java.util.*;
 
 public class ca {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         int num1;
         int num2;
-        var in=new BufferedReader(new InputStreamReader(System.in));
+        var in=new Scanner(System.in);
         System.out.println("oye number dal");
-        num1 = Integer.parseInt(in.readLine());
+        num1 = Integer.parseInt(in.nextLine());
         System.out.println("oye dusra number dal");
-        num2 = Integer.parseInt(in.readLine());
+        num2 = Integer.parseInt(in.nextLine());
         System.out.println("oye operation dal");
-        String operation = in.readLine();
-        System.out.println(operation+"        "+num1+"    "+num2);
-        if (operation.equals("+")) {
-            System.out.println("tera answer hai" + (num1 + num2));
+        String operation = in.nextLine();
+        switch (operation) {
+            case "+" -> System.out.println("tera answer hai  " + (num1 + num2));
+            case "-" -> System.out.println("tera answer hai  " + (num1 - num2));
+            case "/" -> System.out.println("tera answer hai  " + (num1 / num2));
+            case "*" -> System.out.println("tera answer hai  " + (num1 * num2));
         }
-        else if (operation.equals("-")) {
-            System.out.println("your answer is" + (num1 - num2));
-        }
-
-        else if (operation.equals("/")) {
-            System.out.println("your answer is" + (num1 / num2));
-        }
-        else if (operation.equals("*")) {
-            System.out.println("your answer is" + (num1 * num2));
-        }
-
-
     }
 }

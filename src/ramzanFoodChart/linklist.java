@@ -8,7 +8,8 @@ public class linklist {
     public static void main(String[] args) {
         Queue<Integer> queue= new ArrayDeque<>(List.of(-2, -5, -8, -9));
         int i=0;
-        while (true){
+        for (var t:queue){
+            System.out.println(t);
             queue.poll();
             queue.add(i);
             i++;
