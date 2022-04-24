@@ -11,29 +11,28 @@ public class FibonacciAndSum
         int ch=scanner.nextInt();
         System.out.println("Enter your number");
         int n=scanner.nextInt();
-        switch (ch){
-            case 1:{
-                int a=0,b=1,c;
-                System.out.print(a+","+b);
-                for (int i=3;i<=n;i++){
-                    c=a+b;
-                    System.out.print(","+c);
-                    a=b;
-                    b=c;
+        switch (ch) {
+            case 1 -> {
+                int a = 0, b = 1, c;
+                System.out.print(a + "," + b);
+                for (int i = 3; i <= n; i++) {
+                    c = a + b;
+                    System.out.print("," + c);
+                    a = b;
+                    b = c;
                 }
                 break;
             }
-            case 2:{
-                int s=0;
-                while (n>0){
-                    s=s+(n%10);
-                    n=n/10;
+            case 2 -> {
+                int s = 0;
+                while (n > 0) {
+                    s = s + (n % 10);
+                    n = n / 10;
                 }
-                System.out.println("The sum of digit of number are "+s);
-               break;
+                System.out.println("The sum of digit of number are " + s);
+                break;
             }
-            default:
-                System.out.println("Error");
+            default -> System.out.println("Error");
         }
     }
 }

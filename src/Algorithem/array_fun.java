@@ -5,15 +5,20 @@ import java.util.Arrays;
 public class array_fun {
     public static void main(String[] args) {
         //int[] a = new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};
-        int[][] a = randomArray(500000);
+        int[] a = randomArray(50000000)[0];
         long start = System.currentTimeMillis();
-        var k1 = binary_sort(a[0]);
+        int[] k=new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            k[i]=a[i];
+        }
+        //find_possible_sum(a[0],192);
         //int[] b = new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};
         //System.out.println(Arrays.toString(binary_sort(b)));
         System.out.println(System.currentTimeMillis() - start);
-        start = System.currentTimeMillis();
-        var k2 = algo(a[1]);
-        System.out.println(System.currentTimeMillis() - start);
+        System.out.println("Copied");
+        //start = System.currentTimeMillis();
+        //var k2 = algo(a[1]);
+        //System.out.println(System.currentTimeMillis() - start);
         //System.out.println(Arrays.toString(k1));
         //System.out.println(Arrays.toString(k2));
 
@@ -25,7 +30,8 @@ public class array_fun {
         int k = 1;
         for (int i = 1; i < arr.length; i++) {
             int c = 0;
-            for (int value : nArr) {
+            for (int j = 0; j < k; j++) {
+                int value = nArr[j];
                 if (arr[i] == value) {
                     c++;
                     break;
@@ -88,7 +94,6 @@ public class array_fun {
                     k++;
                 }
             }
-
         }
         return nArr;
     }
@@ -133,8 +138,16 @@ public class array_fun {
                     k++;
                 }
             }
-
         }
         return nArr;
+    }
+    private static void find_possible_sum(int []a,int n){
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i+1; j < a.length; j++) {
+                if (a[i]+a[j]==n){
+                    System.out.println(a[i]+"       "+a[j]);
+                }
+            }
+        }
     }
 }

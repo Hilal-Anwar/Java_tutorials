@@ -24,7 +24,7 @@ public class Triangle
             for (int j = i-1; j >=3 ; j--) {
                 for (int k = j-1; k >=3 ; k--) {
                     if (i*i==k*k+j*j){
-                        System.out.println(i+" "+j+" "+k+" sin: "+Math.toDegrees(Math.asin(1.0*j/i))+" cos: "+Math.toDegrees(Math.acos(1.0*k/i))+" cos: "+Math.toDegrees(Math.atan(1.0*j/k)));
+                        System.out.println(i+" "+j+" "+k+" sin: "+Math.toDegrees(Math.asin(1.0*j/i))+" cos: "+Math.toDegrees(Math.acos(1.0*k/i))+" tan: "+Math.toDegrees(Math.atan(1.0*j/k)));
                     }
                 }
             }

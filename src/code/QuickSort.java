@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class QuickSort
 {
     public static void main(String[] args) {
-        int[][] x =randomArray(1000);
-        System.out.println(Arrays.toString(x[0]));
+        int[][] x =randomArray1(50000);
+        //System.out.println(Arrays.toString(x[0]));
         int len=0;
         while (x.length>len)
         {
@@ -19,10 +19,19 @@ public class QuickSort
             }
             x=tem;
         }
-        for (int[] ints : x) {
+        System.out.println("Sorted");
+       /* for (int[] ints : x) {
             System.out.print(Arrays.toString(ints) + ",");
-        }
+        }*/
 
+    }
+    private static int[][] randomArray1(int n) {
+        int [][]a=new int[n][];
+        for (int j = 0; j <n; j++) {
+            a[j]=new int[]{(int)(Math.random()*n+35)};
+        }
+        System.out.println("Array is filled");
+        return a;
     }
     private static int[][] randomArray(int n) {
         int []a=new int[n];
@@ -70,7 +79,7 @@ public class QuickSort
         }
        //splitting
         if (n.length>2)
-       return splitting(n,pivot,((n.length-1==pivot||pivot==0)?2:3));
+         return splitting(n,pivot,((n.length-1==pivot||pivot==0)?2:3));
         return new int[][]{n};
     }
     private static int [][] splitting(int []a,int pivot,int size){

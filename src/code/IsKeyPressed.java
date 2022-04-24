@@ -12,27 +12,24 @@ public class IsKeyPressed {
     }
 
     public static void main(String[] args) {
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KeyEventDispatcher() {
-            @Override
-            public boolean dispatchKeyEvent(KeyEvent ke) {
-                synchronized (IsKeyPressed.class) {
-                    System.out.println("hhh");
-                    switch (ke.getID())
-                    {
-                        case KeyEvent.KEY_PRESSED:
-                            if (ke.getKeyCode() == KeyEvent.VK_W) {
-                                wPressed = true;
-                            }
-                            break;
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(ke -> {
+            synchronized (IsKeyPressed.class) {
+                System.out.println("hhh");
+                switch (ke.getID())
+                {
+                    case KeyEvent.KEY_PRESSED:
+                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            wPressed = true;
+                        }
+                        break;
 
-                        case KeyEvent.KEY_RELEASED:
-                            if (ke.getKeyCode() == KeyEvent.VK_W) {
-                                wPressed = false;
-                            }
-                            break;
-                    }
-                    return false;
+                    case KeyEvent.KEY_RELEASED:
+                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            wPressed = false;
+                        }
+                        break;
                 }
+                return false;
             }
         });
     }

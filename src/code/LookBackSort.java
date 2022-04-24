@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class LookBackSort {
     public static void main(String[] args) {
-        int []num=randomArray(1000000); //array
+        int []num=randomArray(100000); //array
         for (int i = 0; i < num.length-1; i++)
         {
             for (int j = i+1; j >= 1; j--)
