@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class Merge_sort
 {
     public static void main(String[] args) {
-      int [][]arr=randomArray(1000000);
+      int [][]arr=randomArray(100000000);
+      long start=System.currentTimeMillis();
       int x= ((arr.length%2==0)?arr.length/2:(arr.length+1)/2);
       for(int k=1;k<x;k++)
       {
@@ -19,7 +20,8 @@ public class Merge_sort
               tem_arr[cu]=arr[arr.length-1];
           arr=tem_arr;
       }
-      System.out.println(Arrays.toString(arr[0]));
+      System.out.println(System.currentTimeMillis()-start);
+      //System.out.println(Arrays.toString(arr[0]));
     }
     private static int[][] randomArray(int n) {
         int [][]a=new int[n][];

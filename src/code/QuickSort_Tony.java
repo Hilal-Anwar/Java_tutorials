@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class QuickSort_Tony {
     public static void main(String[] args) {
-        int[] x = /*new int[]{8, 45, 85, 78, 83, 87, 46, 43, 16, 24};*/randomArray1(10000000);
+        int[] x =/*new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};*/randomArray1(10000000);
         //System.out.println(Arrays.toString(x));
         long start=System.currentTimeMillis();
         sort1(x);
@@ -67,7 +67,9 @@ public class QuickSort_Tony {
         var points = new int[a.length*2][2];
         points[0]=new int[]{0, a.length - 1};
         int filled_sized=1;
+        int count=0;
         for (int z = 0; z < filled_sized; z++) {
+            count++;
             int[] k = points[z];
             int start = k[0];
             int end = k[1];
@@ -94,9 +96,11 @@ public class QuickSort_Tony {
             }
             if (end - j >= 1){
                 points[filled_sized+1]=new int[]{j + 1, end};
+                filled_sized++;
             }
         }
         System.out.println("Sorted");
+        System.out.println(count);
         //System.out.println(Arrays.toString(a));
     }
 

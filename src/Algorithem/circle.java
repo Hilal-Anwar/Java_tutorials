@@ -5,8 +5,8 @@ public class circle {
         for (int i = 0; i <=50 ; i++) {
             for (int j = 0; j <=50 ; j++) {
                 if (j>value(2,i)&&j<=cord(2,i))
-                    System.out.print(". ");
-                else System.out.print("  ");
+                    System.out.print(" . ");
+                else System.out.print("   ");
             }
             System.out.println();
         }

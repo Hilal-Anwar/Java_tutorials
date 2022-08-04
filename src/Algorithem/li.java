@@ -5,7 +5,7 @@ import java.util.*;
 public class li {
     public static void main(String[] args) {
         LinkedList<Integer> linkedList=new LinkedList<>();
-        linkedList.add(0);
+        /*linkedList.add(0);
         linkedList.add(5);
         linkedList.add(-5);
         linkedList.add(6326);
@@ -21,6 +21,20 @@ public class li {
         //linkedList.sort(comparator);
         Collections.sort(linkedList);
         System.out.println(linkedList);
-        System.out.println(new Random().nextInt());
+        System.out.println(new Random().nextInt());*/
+        draw_grid();
+    }
+    static void draw_grid(){
+        StringBuilder s=new StringBuilder();
+        for(int i=1;i<30;i++){
+            for(int j=1;j<50;j++){
+                if(i%2!=0 || j%2!=0)
+                    s.append("██");
+                else
+                    s.append("  ");
+            }
+            s.append('\n');
+        }
+        System.out.println(s);
     }
 }

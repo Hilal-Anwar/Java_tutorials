@@ -1,8 +1,14 @@
 package help;
 
+
+import java.util.Scanner;
+
 public class Main
 {
     public static void main(String[] args) {
-        Sum sum=new Sum(10,30);
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int a=in.nextInt();
+        System.out.println("My name is yasir ahmed");
     }
 }

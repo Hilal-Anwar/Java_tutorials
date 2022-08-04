@@ -11,7 +11,7 @@ public class SumOfSeries_a
         int n=scanner.nextInt();
         double f=1;
         for (int i=1;i<=n;i++){
-            for (int a=1;a<=i;i++)
+            for (int a=1;a<=i;a++)
                 f=f*a;
             sum=sum+(1/f);
         }

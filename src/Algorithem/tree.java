@@ -22,7 +22,7 @@ public class tree {
         }
         for (int i=0;i<6;i++){
             for (int j=0;j<6;j++){
-                System.out.print("  "+data[i][j]+"  ");
+                System.out.print("\t"+data[i][j]+"\t");
             }
             System.out.println();
         }

@@ -6,10 +6,9 @@ import java.util.Arrays;
 
 class table {
     public static void main(String[] args) {
-        var x = new table();
-        long a=System.currentTimeMillis();
-        x._tree_sort(/*new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3}*/randomArray(1000000));
-        System.out.println(System.currentTimeMillis()-a);
+        long a = System.currentTimeMillis();
+        ___tree_sort(/*new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}*/randomArray(1000000));
+        System.out.println(System.currentTimeMillis() - a);
     }
 
     private static int[] randomArray(int n) {
@@ -53,11 +52,11 @@ class table {
         tree[0] = b;
         int[][] start_end = new int[a.length][];
         start_end[0] = new int[]{a.length, a.length};
-        int index=0,filled_index=0;
-        for (int i = 1; i < a.length;) {
+        int index = 0, filled_index = 0;
+        for (int i = 1; i < a.length; ) {
             //System.out.println(i+"\t"+index);
-             int start=start_end[index][0];
-             int end=start_end[index][1];
+            int start = start_end[index][0];
+            int end = start_end[index][1];
             if (tree[index][start][0] >= a[i]) {
                 start--;
                 start_end[index][0] = start;
@@ -70,8 +69,7 @@ class table {
                 tree[index][end][0] = a[i];
                 tree[index][end][1] = -1;
                 i++;
-            }
-            else {
+            } else {
                 //System.out.println("llll");
                 //System.out.println(start+"\t"+end+"\t"+a[i]);
                 int mid;
@@ -85,7 +83,7 @@ class table {
                     else if (tree[index][mid][0] < a[i])
                         start = mid;
                 }
-               // System.out.println(start+"\t"+end);
+                // System.out.println(start+"\t"+end);
                 if (tree[index][start][1] == -1) {
                     //System.out.println("kkkk");
                     filled_index++;
@@ -94,11 +92,11 @@ class table {
                     tree[filled_index] = bu;
                     //System.out.println(Arrays.deepToString(tree));
                     start_end[filled_index] = new int[]{a.length, a.length};
-                    tree[filled_index-1][start][1] = filled_index;
+                    tree[filled_index - 1][start][1] = filled_index;
                     i++;
-                    index=0;
+                    index = 0;
                 } else {
-                   index= tree[index][start][1];
+                    index = tree[index][start][1];
                 }
             }
 
@@ -107,35 +105,37 @@ class table {
         //System.out.println(Arrays.deepToString(start_end));
 
     }
-    void _tree_sort(int []a){
+
+    static void _tree_sort(int[] a) {
         int[][][] tree = new int[a.length][][];
         tree[0] = new int[][]{new int[]{a[0], -1}};
-        int filled_index=0;
-        int index=0;
+        int filled_index = 0;
+        int index = 0;
         int i = 1;
+        int count = 0;
         while (i < a.length) {
-            int size=tree[index].length;
-            int start=0;
-            int end=size-1;
+            count++;
+            int size = tree[index].length;
+            int start = 0;
+            int end = size - 1;
             if (tree[index][start][0] >= a[i]) {
-                int[][] dummy_array =new int[size+1][];
-                var temp=tree[index];
+                int[][] dummy_array = new int[size + 1][];
+                var temp = tree[index];
                 System.arraycopy(temp, 0, dummy_array, 1, temp.length);
-                dummy_array[0]=new int[]{a[i],-1};
-                tree[index]=dummy_array;
+                dummy_array[0] = new int[]{a[i], -1};
+                tree[index] = dummy_array;
                 i++;
-                index=0;
+                index = 0;
 
             } else if (tree[index][end][0] <= a[i]) {
-                int[][] r =new int[size+1][];
-                var t=tree[index];
+                int[][] r = new int[size + 1][];
+                var t = tree[index];
                 System.arraycopy(t, 0, r, 0, r.length - 1);
-                r[r.length-1]=new int[]{a[i],-1};
-                tree[index]=r;
+                r[r.length - 1] = new int[]{a[i], -1};
+                tree[index] = r;
                 i++;
-                index=0;
-            }
-            else {
+                index = 0;
+            } else {
                 int mid;
                 while ((end - start) != 1) {
                     mid = (end + start) / 2;
@@ -154,11 +154,146 @@ class table {
                     tree[filled_index] = dummy_array;
                     tree[index][start][1] = filled_index;
                     i++;
-                    index=0;
+                    index = 0;
                 } else {
-                    index= tree[index][start][1];
+                    index = tree[index][start][1];
                 }
             }
         }
+        System.out.println(count);
+        // System.out.println(Arrays.deepToString(tree));
+    }
+
+    static void __tree_sort(int[] a) {
+        int[][][] tree = new int[a.length][][];
+        tree[0] = new int[][]{new int[]{-1, a[0], -1}};
+        int filled_index = 0;
+        int index = 0;
+        int i = 1;
+        while (i < a.length) {
+            int size = tree[index].length;
+            int start = 0;
+            int end = size - 1;
+            if (tree[index][start][1] >= a[i]) {
+                if (tree[index][start][0] == -1) {
+                    filled_index++;
+                    int[][] dummy_array = new int[1][];
+                    dummy_array[0] = new int[]{-1, a[i], -1};
+                    tree[filled_index] = dummy_array;
+                    tree[index][start][0] = filled_index;
+                    i++;
+                    index = 0;
+                } else {
+                    index = tree[index][start][0];
+                }
+
+            } else if (tree[index][end][1] <= a[i]) {
+                int[][] r = new int[size + 1][];
+                var t = tree[index];
+                System.arraycopy(t, 0, r, 0, r.length - 1);
+                r[r.length - 1] = new int[]{-1, a[i], -1};
+                tree[index] = r;
+                i++;
+                index = 0;
+            } else {
+                int mid;
+                while ((end - start) != 1) {
+                    mid = (end + start) / 2;
+                    if (a[i] == tree[index][mid][1]) {
+                        start = mid;
+                        break;
+                    } else if (tree[index][mid][1] > a[i])
+                        end = mid;
+                    else if (tree[index][mid][1] < a[i])
+                        start = mid;
+                }
+                if (tree[index][start][2] == -1) {
+                    filled_index++;
+                    int[][] dummy_array = new int[1][];
+                    dummy_array[0] = new int[]{-1, a[i], -1};
+                    tree[filled_index] = dummy_array;
+                    tree[index][start][2] = filled_index;
+                    i++;
+                    index = 0;
+                } else {
+                    index = tree[index][start][2];
+                }
+            }
+        }
+        // System.out.println(Arrays.deepToString(tree));
+    }
+
+    static void ___tree_sort(int[] a) {
+        int[][] tree = new int[a.length][];
+        tree[0] = new int[]{-1, a[0], -1};
+        int filled_index = 0;
+        int index = 0;
+        int i = 1;
+        int count = 0;
+        while (i < a.length) {
+            count++;
+            if (tree[index][1] >= a[i]) {
+                if (tree[index][0] == -1) {
+                    filled_index++;
+                    tree[filled_index] = new int[]{-1, a[i], -1};
+                    tree[index][0] = filled_index;
+                    i++;
+                    index = 0;
+                } else {
+                    index = tree[index][0];
+                }
+
+            } else if (tree[index][1] <= a[i]) {
+                if (tree[index][2] == -1) {
+                    filled_index++;
+                    tree[filled_index] = new int[]{-1, a[i], -1};
+                    tree[index][2] = filled_index;
+                    i++;
+                    index = 0;
+                } else {
+                    index = tree[index][2];
+                }
+            }
+        }
+        //System.out.println(Arrays.deepToString(tree));
+        //int[] z = new int[a.length];
+        System.out.println("tree made");
+        System.out.println(count);
+        //walking(tree);
+        //System.out.println(Arrays.toString(z));
+    }
+
+    static void walking(int[][] a) {
+        int[] z = new int[a.length];
+        int[] previous_index = new int[a.length];
+        int f1 = 0, f2 = 0, f3 = 0;
+        while (f3 <= a.length) {
+            var t = a[f1];
+            if (t[0] > 0) {
+                previous_index[f2] = f1;
+                f1 = t[0];
+                t[0] = -1;
+                f2++;
+            } else {
+                if (t[0] == -1) {
+                    z[f3] = t[1];
+                    t[0] = -2;
+                    f3++;
+                }
+                if (t[2] > 0) {
+                    previous_index[f2] = f1;
+                    f1 = t[2];
+                    t[2] = -1;
+                    f2++;
+                } else {
+                    previous_index[f2] = 0;
+                    f2--;
+                    if (f2 < 0)
+                        break;
+                    f1 = previous_index[f2];
+                }
+            }
+        }
+        System.out.println(Arrays.toString(z));
     }
 }

@@ -1,6 +1,6 @@
 package ramzanFoodChart;
 
-public class Print
+public final class Print
 {
     public static void print(Object o){
         System.out.print(o);

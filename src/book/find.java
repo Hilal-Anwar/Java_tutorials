@@ -12,7 +12,7 @@ public class find {
         long y=System.currentTimeMillis();
         System.out.println(find_max_in_array_n_O_(t));
         System.out.println(System.currentTimeMillis()-y);*/
-        //surd_form(99999999);
+        surd_form(25);
         //find_multiple(0,999999999,6975);
         System.out.println(fibonacci_series(0,1,20,"0 1"));
     }
@@ -33,18 +33,20 @@ public class find {
         }
         return x;
     }
-    static void surd_form(int a) {
-        int i = 2;
-        int j = 2;
-        int sq = 1;
-        while ((i * i) <= a) {
-            if (a % (i * i) == 0) {
-                a = a / (i * i);
+    static void surd_form(long a) {
+        long i = 2;
+        long j = 2;
+        long sq = 1;
+        long k=i*i;
+        while (k <= a) {
+            if (a % k == 0) {
+                a = a / k;
                 sq = sq * i;
             } else {
                 j++;
                 i = j;
             }
+            k=i*i;
         }
         System.out.println(sq + "" + "√" + a);
     }

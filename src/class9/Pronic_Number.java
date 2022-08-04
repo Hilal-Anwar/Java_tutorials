@@ -8,12 +8,12 @@ public class Pronic_Number
         var in=new Scanner(System.in);
         System.out.println("Enter a number");
         double k=in.nextDouble();
-        long t=System.currentTimeMillis();
+        long t=System.nanoTime();
         System.out.println(isPronic(k));
-        System.out.println(System.currentTimeMillis()-t);
-        t=System.currentTimeMillis();
+        System.out.println(System.nanoTime()-t);
+        t=System.nanoTime();
         System.out.println(isPronic_(k));
-        System.out.println(System.currentTimeMillis()-t);
+        System.out.println(System.nanoTime()-t);
     }
     private static boolean isPronic(double number){
         double a=Math.sqrt(4* number +1);
@@ -22,7 +22,8 @@ public class Pronic_Number
         return (p-(int)(p)==0 && (p*(p-1)== number));
     }
     private static boolean isPronic_(double k){
-        for (double i = 1; i <= Math.sqrt(k); i++) {
+        double sqrt = Math.sqrt(k);
+        for (double i = 1; i <= sqrt; i++) {
             if(i*(i+1)==k)
                 return true;
         }

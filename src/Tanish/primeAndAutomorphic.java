@@ -10,32 +10,29 @@ public class primeAndAutomorphic {
         int ch=scanner.nextInt();
         System.out.println("Enter your number");
         int n=scanner.nextInt();
-        switch (ch){
-            case 1:{
-                int co=0;
-                for (int i=1;i<n;i++)
-                    if (n%i==0)
+        switch (ch) {
+            case 1 -> {
+                int co = 0;
+                for (int i = 1; i < n; i++)
+                    if (n % i == 0)
                         co++;
-                  if(co==2)
-                      System.out.println("prime number");
-                  else System.out.println("not prime number");
-                break;
+                if (co == 2)
+                    System.out.println("prime number");
+                else System.out.println("not prime number");
             }
-            case 2:{
-                int sq=n*n;
-                int count=0;
-                while (n>0){
+            case 2 -> {
+                int sq = n * n;
+                int count = 0;
+                while (n > 0) {
                     count++;
-                    n=n/10;
+                    n = n / 10;
                 }
-                if ((sq%Math.pow(10,count))==Math.sqrt(sq))
+                if ((sq % Math.pow(10, count)) == Math.sqrt(sq))
                     System.out.println("Automorphic number");
                 else
                     System.out.println("Not a Automorphic number");
-                break;
             }
-            default:
-                System.out.println("Illegal choice");
+            default -> System.out.println("Illegal choice");
         }
     }
 }
