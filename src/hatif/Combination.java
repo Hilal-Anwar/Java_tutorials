@@ -13,7 +13,7 @@ public class Combination {
         System.out.println(list);
         System.out.println(list.size());
         var lst = new TreeSet<Integer>();
-        _combination(0, 4, m, lst, 1, 0);
+        combination(0, 4, m, lst, 1, 0);
         System.out.println(lst);
         System.out.println(lst.size());
     }
@@ -38,16 +38,24 @@ public class Combination {
         }
     }
 
-    static void _combination(int startIndex, int digits, int[] memory, TreeSet<Integer> listOfNumbers, int count, int val) {
-        for (int i = startIndex; i < memory.length; i++) {
+    static void combination(int i,
+                            int digits,
+                            int[] list,
+                            TreeSet<Integer> listOfNumbers,
+                            int count, int number)
+    {
+        for (; i < list.length; i++) {
             if (count < digits) {
-                val = val * 10 + memory[i];
+                number = number * 10 + list[i];
                 count++;
-                _combination(i + 1, digits, memory, listOfNumbers, count, val);
+                combination(i + 1,
+                        digits, list,
+                        listOfNumbers,
+                        count, number);
                 count--;
-                val = val / 10;
+                number = number / 10;
             } else {
-                listOfNumbers.add(val * 10 + memory[i]);
+                listOfNumbers.add(number * 10 + list[i]);
             }
 
         }
