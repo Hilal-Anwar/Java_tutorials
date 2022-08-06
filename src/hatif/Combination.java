@@ -6,16 +6,16 @@ import java.util.TreeSet;
 
 public class Combination {
     public static void main(String[] args) {
-        var m = new int[]{1, 2, 3, 4};
+        var m = new int[]{1, 2, 3, 4, 5, 6};
         var list = new ArrayList<Integer>();
-        var l = new int[2];
-        combination(0, 3, m, list, 0, l);
+        var l = new int[3];
+        combination(0, 4, m, list, 0, l);
         System.out.println(list);
         System.out.println(list.size());
-        list = new ArrayList<>();
-        _combination(0, 3, m, list, 1, 0);
-        System.out.println(list);
-        System.out.println(list.size());
+        var lst = new TreeSet<Integer>();
+        _combination(0, 4, m, lst, 1, 0);
+        System.out.println(lst);
+        System.out.println(lst.size());
     }
 
     static void combination(int startIndex, int digits, int[] memory, ArrayList<Integer> listOfNumbers, int count, int[] val) {
@@ -24,7 +24,6 @@ public class Combination {
                 val[count] = memory[i];
                 count++;
                 combination(i + 1, digits, memory, listOfNumbers, count, val);
-                System.out.println(i+1);
                 count--;
             } else {
                 int number = 0;
@@ -39,17 +38,16 @@ public class Combination {
         }
     }
 
-    static void _combination(int startIndex, int digits, int[] memory, ArrayList<Integer> listOfNumbers, int count, int val) {
+    static void _combination(int startIndex, int digits, int[] memory, TreeSet<Integer> listOfNumbers, int count, int val) {
         for (int i = startIndex; i < memory.length; i++) {
             if (count < digits) {
-                val = val + (memory[i] * (int) (Math.pow(10, digits - count)));
+                val = val * 10 + memory[i];
                 count++;
                 _combination(i + 1, digits, memory, listOfNumbers, count, val);
                 count--;
-                val = val - val % 100;
+                val = val / 10;
             } else {
-                val = val + memory[i];
-                listOfNumbers.add(val);
+                listOfNumbers.add(val * 10 + memory[i]);
             }
 
         }
