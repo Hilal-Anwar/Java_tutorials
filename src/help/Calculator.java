@@ -30,7 +30,7 @@ public class Calculator {
                     tem = tem + ConsoleValue.charAt(i);
                     if (tem.length() == 1)
                         tem = String.valueOf(Long.parseLong(tem) * sign);
-                        sign = 1;
+                    sign = 1;
                 }
                 if (condition) {
                     if (!tem.equals("")) {

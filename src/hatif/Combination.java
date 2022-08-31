@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Combination {
+    static  int []list = new int[]{1, 2, 3, 4, 5, 6};
     public static void main(String[] args) {
         var m = new int[]{1, 2, 3, 4, 5, 6};
         var list = new ArrayList<Integer>();
@@ -13,9 +14,10 @@ public class Combination {
         System.out.println(list);
         System.out.println(list.size());
         var lst = new TreeSet<Integer>();
-        combination(0, 4, m, lst, 1, 0);
+        combination(0, 2, m, lst, 1, 0);
         System.out.println(lst);
         System.out.println(lst.size());
+        combination(0,2,1,0);
     }
 
     static void combination(int startIndex, int digits, int[] memory, ArrayList<Integer> listOfNumbers, int count, int[] val) {
@@ -38,24 +40,30 @@ public class Combination {
         }
     }
 
-    static void combination(int i,
-                            int digits,
-                            int[] list,
-                            TreeSet<Integer> listOfNumbers,
-                            int count, int number)
-    {
+    static void combination(int i, int digits, int[] list, TreeSet<Integer> listOfNumbers, int count, int number) {
         for (; i < list.length; i++) {
             if (count < digits) {
                 number = number * 10 + list[i];
                 count++;
-                combination(i + 1,
-                        digits, list,
-                        listOfNumbers,
-                        count, number);
+                combination(i + 1, digits, list, listOfNumbers, count, number);
                 count--;
                 number = number / 10;
             } else {
                 listOfNumbers.add(number * 10 + list[i]);
+            }
+
+        }
+    }
+    static void combination(int i, int digits,int count, int number) {
+        for (; i < list.length; i++) {
+            if (count < digits) {
+                number = number * 10 + list[i];
+                count++;
+                combination(i + 1, digits,count, number);
+                count--;
+                number = number / 10;
+            } else {
+                System.out.println(number * 10 + list[i]);
             }
 
         }

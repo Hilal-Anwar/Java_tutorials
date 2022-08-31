@@ -3,8 +3,8 @@ package complex;
 public class FindPrime {
     public static void main(String[] args) {
         int k = 0;
-        find_next_multiple(26584,11);
-        find_next_multiple(26584,3);
+        System.out.println( find_the_multiple_after(11,9));
+        System.out.println( find_the_multiple_before(11,9));
     }
 
     private static boolean isPrime(double n) {
@@ -63,8 +63,11 @@ public class FindPrime {
         System.out.println();
         System.out.println(System.currentTimeMillis()-x);
     }
-    static void find_next_multiple(int after, int a){
-        System.out.println((((after-after%a)/a)+1)*a);
+    static int  find_the_multiple_after(int of,int after){
+        return (after-after%of)+of;
+    }
+    static int find_the_multiple_before(int of,int before) {
+    	return before-before%of;
     }
 }
 

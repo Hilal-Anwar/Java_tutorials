@@ -2,19 +2,19 @@ package hatif;
 
 import java.util.Scanner;
 
-class Average {
+class Average{
     public static void main(String[] args) {
-        int a,b,c;
-        double sum,avg;
         Scanner in=new Scanner(System.in);
-        System.out.println("Enter the 3 numbers");
+        System.out.println("Enter the first number");
+        int a,b,c;
         a=in.nextInt();
+        System.out.println("Enter the second number");
         b=in.nextInt();
+        System.out.println("Enter the third number");
         c=in.nextInt();
-        sum=a+b+c;
-        avg=sum/3;
-        System.out.println("The of 3 numbers are = "+sum);
-        System.out.println("The  average of 3  numbers are = "+avg);
-
+        int s=a+b+c;
+        int avg=s/3;
+        System.out.println("Your sum is = "+s);
+        System.out.println("Your average of numbers is = "+avg);
     }
 }

@@ -7,6 +7,6 @@ public class fun {
 
     }
     public static void main(String[] args) {
-        System.out.println(fab(0,1,100));
+        System.out.println(fab(0,1,10));
     }
 }

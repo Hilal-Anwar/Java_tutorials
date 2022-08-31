@@ -2,29 +2,29 @@ package class9;
 
 import java.util.Scanner;
 
-public class Pronic_Number
-{
+public class Pronic_Number {
     public static void main(String[] args) {
-        var in=new Scanner(System.in);
+        var in = new Scanner(System.in);
         System.out.println("Enter a number");
-        double k=in.nextDouble();
-        long t=System.nanoTime();
-        System.out.println(isPronic(k));
-        System.out.println(System.nanoTime()-t);
-        t=System.nanoTime();
+        double k = in.nextDouble();
+        long t = System.nanoTime();
         System.out.println(isPronic_(k));
-        System.out.println(System.nanoTime()-t);
+        System.out.println(System.nanoTime() - t);
+        t = System.nanoTime();
+        System.out.println(isPronic(k));
+        System.out.println(System.nanoTime() - t);
     }
-    private static boolean isPronic(double number){
-        double a=Math.sqrt(4* number +1);
-        double p=(a+1)/2;
-        //double q=(-a-1)/2;
-        return (p-(int)(p)==0 && (p*(p-1)== number));
+
+    private static boolean isPronic(double n) {
+        var a = 2 * Math.sqrt(n + 0.25);
+        var b = (a + 1) * 0.5;
+        return b - (int) b == 0 & b * (b - 1) == n;
     }
-    private static boolean isPronic_(double k){
+
+    private static boolean isPronic_(double k) {
         double sqrt = Math.sqrt(k);
         for (double i = 1; i <= sqrt; i++) {
-            if(i*(i+1)==k)
+            if (i * (i + 1) == k)
                 return true;
         }
         return false;
