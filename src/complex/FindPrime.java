@@ -5,6 +5,7 @@ public class FindPrime {
         int k = 0;
         System.out.println( find_the_multiple_after(11,9));
         System.out.println( find_the_multiple_before(11,9));
+        System.out.println(isPrime(188232082384791343L));
     }
 
     private static boolean isPrime(double n) {
