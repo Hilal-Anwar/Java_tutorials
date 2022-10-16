@@ -3,12 +3,10 @@ package measurement.curve;
 import measurement.polygon.n_gon.N_Gon;
 import measurement.polygon.quadrilateral.Quadrilateral;
 import measurement.polygon.quadrilateral.Rectangle;
-import static java.lang.System.*;
-
 public class make {
     public static void main(String[] args) {
         var rectangle=new Quadrilateral("(0,0)","(5,0)","(5,6)","(0,6)");
-        out.println(rectangle.getDiagonals());
+        System.out.println(rectangle.getDiagonals());
         System.out.println(rectangle.getArea());
         System.out.println(rectangle.getAngles());
         System.out.println(rectangle.getPerimeter());

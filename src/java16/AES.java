@@ -60,13 +60,12 @@ public class AES {
     }
     public static void main(String[] args)
     {
-        final String secretKey = "1234";
+        final String secretKey = "fjdk[fjdsg";
 
         String originalString = """
-                Hello world
-                My name is helal anwar
-                I belong to india
-                I love coding
+                Hi
+                How are you?
+                I will meet you in new yok.
                 """;
         String encryptedString = AES.encrypt(originalString, secretKey) ;
         String decryptedString = AES.decrypt(encryptedString, secretKey) ;

@@ -1,5 +1,10 @@
 package complex;
 
+import Rizwana.B;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 public class FindPrime {
     public static void main(String[] args) {
         int k = 0;
@@ -7,8 +12,31 @@ public class FindPrime {
         System.out.println( find_the_multiple_before(11,9));
         System.out.println(isPrime(188232082384791343L));
     }
-
-    private static boolean isPrime(double n) {
+    public static boolean isPrime(double n) {
+        int count = 0;
+        n = Math.abs(n);
+        if ((n == 1) || (n % 2 == 0 && n != 2) ||
+                (n % 3 == 0 && n != 3) ||
+                (n % 5 == 0 && n != 5) ||
+                (n % 7 == 0 && n != 7) ||
+                (n % 11 == 0 && n != 11) ||
+                (n % 13 == 0 && n != 13) ||
+                (n % 17 == 0 && n != 17) ||
+                (n % 19 == 0 && n != 19))
+            return false;
+        if (Math.sqrt(n) - Math.floor(Math.sqrt(n)) == 0)
+            return false;
+        int i = 23;
+        while (i <= (int) Math.sqrt(n)) {
+            if (n % i == 0)
+                count++;
+            if (count > 1)
+                return false;
+            i = i + 2;
+        }
+        return true;
+    }
+    public static boolean isPrime(long n) {
         int count = 0;
         n = Math.abs(n);
         if ((n == 1) || (n % 2 == 0 && n != 2) ||

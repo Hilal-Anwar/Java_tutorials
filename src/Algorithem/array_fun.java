@@ -5,23 +5,24 @@ import java.util.Arrays;
 public class array_fun {
     public static void main(String[] args) {
         //int[] a = new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};
-        int[] a = randomArray(50000000)[0];
+        /*int[] a = randomArray(50000000)[0];
         long start = System.currentTimeMillis();
         int[] k=new int[a.length];
         for (int i = 0; i < a.length; i++) {
             k[i]=a[i];
         }
         //find_possible_sum(a[0],192);
-        //int[] b = new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};
-        //System.out.println(Arrays.toString(binary_sort(b)));
+        int[] b = new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};
+        System.out.println(Arrays.toString(remove_repeated_element(a)));
         System.out.println(System.currentTimeMillis() - start);
         System.out.println("Copied");
-        //start = System.currentTimeMillis();
-        //var k2 = algo(a[1]);
+        start = System.currentTimeMillis();
+       // var k2 = algo(a);
         //System.out.println(System.currentTimeMillis() - start);
         //System.out.println(Arrays.toString(k1));
         //System.out.println(Arrays.toString(k2));
-
+*/
+        System.out.println(Is_walkable(new int[]{4,3,0,2,1,5,3}));
     }
 
     static int[] algo(int[] arr) {
@@ -150,4 +151,16 @@ public class array_fun {
             }
         }
     }
+    private static boolean Is_walkable(int []a){
+        int i=a[0],c=0;
+        while(i>=0 && i<a.length && a[i]>=0){
+            int k=i;
+            i=a[i];
+            a[k]=-1;
+            c++;
+        }
+        return c==a.length;
+    }
+
+
 }

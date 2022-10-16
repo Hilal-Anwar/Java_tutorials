@@ -1,15 +1,15 @@
 package code;
 
-import java.io.IOException;
 
 public class Puz {
-    public static void main(String[] args) throws IOException, InterruptedException {
-        int r=0;
-        Draw(30,24);
-        while(true){
-        Draw(30,r);
-        r=(r<29)?r+1:0;
-        clrscr();
+    public static void main(String[] args) throws InterruptedException {
+        int r = 0;
+        Draw(30, 24);
+        while (true) {
+            Draw(30, r);
+            r = (r < 29) ? r + 1 : 0;
+            Thread.sleep(60);
+            clrscr();
         }
     }
 
@@ -19,19 +19,47 @@ public class Puz {
     }
 
     private static void Draw(double R, double r) {
-        String shape = "";
+        StringBuilder shape = new StringBuilder();
         for (double i = 0; i <= 2 * R; i++) {
             for (double j = 0; j <= 2 * R; j++) {
                 char x = (char) (Math.random() * 57 + 65);
                 if (donut(j, i, R, r))
-                    shape = shape + "*" + " ";
-                else shape = shape + "  ";
+                    shape.append(getText("" + x)).append(" ");
+                else shape.append("  ");
             }
-            shape = shape + '\n';
+            shape.append('\n');
         }
-        System.out.println(shape);
+        System.out.println(shape.toString().indent(50));
     }
-    public static void clrscr() throws IOException, InterruptedException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+    public static void clrscr() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static String getText(String s) {
+        return Color.valueOf("" + Color.values()[(int) (Math.random() * 8)]).getColor() + s + "\33[0m";
     }
 }
+
+enum Color {
+    RED("\033[0;31m"),   // RED
+    GREEN("\033[0;32m"),   // GREEN
+    YELLOW("\033[0;33m"),  // YELLOW
+    BLUE("\033[0;34m"),    // BLUE
+    PURPLE("\033[0;35m"),  // PURPLE
+    CYAN("\033[0;36m"),  // CYAN
+    WHITE("\033[0;97m"),  // WHITE
+    CYAN_BRIGHT("\033[0;96m");
+    private final String color;
+
+    Color(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+}
+

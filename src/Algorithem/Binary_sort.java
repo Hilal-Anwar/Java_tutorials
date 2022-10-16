@@ -7,6 +7,7 @@ public class Binary_sort {
     public static void main(String[] args) {
         int[] b = randomArray(100000);
         tree_sort(b);
+        System.out.println(Arrays.toString(b));
         System.out.println("ddd");
     }
     private static void  tree_sort(int[] a){

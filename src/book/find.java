@@ -1,28 +1,26 @@
 package book;
 
+import java.math.BigInteger;
 
-import java.math.BigDecimal;
+import static java.lang.Math.pow;
 
 public class find {
     public static void main(String[] args) {
-        //find_multiple(5412,6454,17);
-        /*var t=random_array(100000000);
-        long x=System.currentTimeMillis();
-        System.out.println(find_max_in_array_n_O(t));
-        System.out.println(System.currentTimeMillis()-x);
-        long y=System.currentTimeMillis();
-        System.out.println(find_max_in_array_n_O_(t));
-        System.out.println(System.currentTimeMillis()-y);*/
-        //improved_surd_form(Long.MAX_VALUE);
+        // find_multiple(5412,6454,17);
+        /*
+         * var t=random_array(100000000); long x=System.currentTimeMillis();
+         * System.out.println(find_max_in_array_n_O(t));
+         * System.out.println(System.currentTimeMillis()-x); long
+         * y=System.currentTimeMillis(); System.out.println(find_max_in_array_n_O_(t));
+         * System.out.println(System.currentTimeMillis()-y);
+         */
+        // improved_surd_form(Long.MAX_VALUE);
         long x = System.currentTimeMillis();
-        System.out.println(Long.MAX_VALUE + "   " + 9659301829632L);
-        improved_surd_form(9223372036854775807L);
+        surd_form(new BigInteger("5588960799022174035625"));
         System.out.println(System.currentTimeMillis() - x);
         long y = System.currentTimeMillis();
-        surd_form(25);
+        // _surd_form(new BigInteger("5588960799022174035625"));
         System.out.println(System.currentTimeMillis() - y);
-        //find_multiple(0,999999999,6975);
-        // System.out.println(fibonacci_series(0,1,20,"0 1"));
     }
 
     static void find_multiple(int i, int j, int a) {
@@ -32,7 +30,6 @@ public class find {
             k = k + a;
         }
     }
-
 
     static int[] random_array(int n) {
         var x = new int[n];
@@ -58,31 +55,70 @@ public class find {
                     p *= i;
                 }
             } else {
-                i += 1;
+                /*
+                 * if (BigInteger.valueOf(a).isProbablePrime(1)) break;
+                 */
+                if (a % 2 == 1) {
+                    i = i % 2 == 0 ? i + 1 : i + 2;
+                } else
+                    i++;
+                k = i * i;
             }
-            k = i * i;
         }
         System.out.println(sq + "" + "√" + (a * p));
     }
 
-    static void improved_surd_form(long a) {
-        long i = 2;
-        long sq = 1;
-        long k = 4;
-        long num = (long) Math.sqrt(a);
-        while (i <= num) {
-            if (a % k == 0) {
-                a /= k;
-                sq *= i;
-                num = (long) Math.sqrt(a);
+    static void surd_form(BigInteger a) {
+        var i = BigInteger.TWO;
+        var sq = BigInteger.ONE;
+        var p = BigInteger.ONE;
+        var mtr = BigInteger.ZERO;
+        var k = BigInteger.valueOf(4);
+        var num = a.sqrt();
+        while (i.min(num).equals(i)) {
+            if (a.mod(i).equals(mtr)) {
+                k = i.multiply(i);
+                if (a.mod(k).equals(mtr)) {
+                    a = a.divide(k);
+                    sq = sq.multiply(i);
+                } else {
+                    a = a.divide(i);
+                    p = p.multiply(i);
+                }
+                num = a.sqrt();
             } else {
-                i += 1;
+                if (a.isProbablePrime(1))
+                    break;
+                /*
+                 * if (a.mod(BigInteger.TWO).equals(BigInteger.ONE)) { i =
+                 * i.mod(BigInteger.TWO).equals(mtr) ? i.add(BigInteger.ONE) :
+                 * i.add(BigInteger.TWO); } else i = i.add(BigInteger.ONE);
+                 */
+                i = i.nextProbablePrime();
             }
-            k = i * i;
         }
-        System.out.println(i);
-        System.out.println(sq + "" + "√" + a);
+        System.out.println(sq + "√" + (a.multiply(p)));
+    }
 
+    static void _surd_form(BigInteger a) {
+        var i = BigInteger.TWO;
+        var sq = BigInteger.ONE;
+        var p = BigInteger.ONE;
+        int count = 0;
+        do {
+            if (a.mod(i).equals(BigInteger.ZERO)) {
+                a = a.divide(i);
+                count++;
+            } else {
+                sq = sq.multiply(i.pow(count / 2));
+                if (count % 2 != 0) {
+                    p = p.multiply(i);
+                }
+                count = 0;
+                i = i.nextProbablePrime();
+            }
+        } while (!a.isProbablePrime(1) || count > 0);
+        System.out.println(sq + "√" + (a.multiply(p)));
     }
 
     static int find_max_in_array_n_O(int[] a) {
@@ -108,5 +144,52 @@ public class find {
         return n >= 0 ? fibonacci_series(b, a + b, n - 1, s + " " + (a + b)) : s;
     }
 
-}
+    static boolean IsKaprekarNumber(int n) {
+        int sq = n * n, t = sq, c = 0;
+        while (sq > 0) {
+            c += 1;
+            sq /= 10;
+        }
+        int k = c / 2;
+        int a = (int) pow(10, k);
+        int b = a * 10;
+        return (c % 2 == 0 && t % a + t / a == n) ||
+                (c % 2 == 1 && t % b + t / b == n);
+    }
 
+    static boolean isCyclicNumber(long a) {
+        long n = a, sum = 0, c = 0;
+        while (n > 0) {
+            sum = sum + n % 10;
+            n = n / 10;
+            c += 1;
+        }
+        for (int i = 2; i <= c; i++) {
+            long k = a * i;
+            long s = 0;
+            while (k > 0) {
+                s = s + k % 10;
+                k = k / 10;
+            }
+            if (sum != s)
+                return false;
+        }
+        return true;
+    }
+
+    static boolean isHappyNumber(int n)
+    {
+        do
+        {
+            int sum = 0;
+            while (n > 0)
+            {
+                sum += pow(n % 10, 2);
+                n /= 10;
+            }
+            n = sum;
+        }
+        while (n != 1);
+        return true;
+    }
+}

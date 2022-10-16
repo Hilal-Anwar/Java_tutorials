@@ -1,104 +1,92 @@
 package Learn;
-// // this  program allow you to play the game of name with computer so think a name
+/*
+This  program allows you to play a game of name with computer so think a name
+*/
 
 
 import java.util.Scanner;
 
 class NameZone {
+    static char[][] letters_matrix = {{'A', 'B', 'C', 'D', 'E'}, {'F', 'G', 'H', 'I', 'J'},
+            {'K', 'L', 'M', 'N', 'O',}, {'P', 'Q', 'R', 'S', 'T'}, {'U', 'V', 'W', 'X', 'Y'},
+            {'Z', ' ', ' ', ' ', ' '}};
+
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
-        int n;
-        int i, j, z;
-        int c = 0, r = 0, d = 0;
-        System.out.println(space(28)+"WELCOME TO NAME ZONE EVERYONE ");
-        System.out.println();
-        do {
-            System.out.println("Think a name and enter the number words in your name");
-            n = Integer.parseInt(in.nextLine());
-            int[] a;
-            a = new int[n];
-            int[] b = new int[n];
-            char[][] m = {{'A', 'B', 'C', 'D', 'E'}, {'F', 'G', 'H', 'I', 'J'},
-                    {'K', 'L', 'M', 'N', 'O',}, {'P', 'Q', 'R', 'S', 'T'}, {'U', 'V', 'W', 'X', 'Y'},
-                    {'Z', ' ', ' ', ' ', ' '}};
-            if (n > 0) {
-                System.out.println(space(28)+"NOW ANSWER COLUMN WISE");
-                System.out.println("THE MATRIX");
-                for (int s = 1; s <= n; s++) {
-                    for (i = 0; i < 6; i++) {
-                        System.out.print(space(36));
-                        for (j = 0; j < 5; j++) {
-                            System.out.print(m[i][j] + " ");
+        try (Scanner in = new Scanner(System.in)) {
+            int no_letters, choice = 1;
+            System.out.println(space(28) + "Welcome to name to NameZone \n");
+            while (choice == 1) {
+                System.out.println("Think a name and ,enter the number words in your name");
+                no_letters = in.nextInt();
+                int[] a, b;
+                if (no_letters > 0) {
+                    a = reply(in,no_letters, 4, " Column");
+                    b = reply(in,no_letters, 5, " Row");
+                    if (a.length > 0 && b.length > 0) {
+                        System.out.println("The name that you thought was \n");
+                        for (int i = 0; i < no_letters; i++) {
+                            System.out.print(letters_matrix[b[i]][a[i]]);
                         }
-                        System.out.println();
+                    } else System.out.println("Don't try to fool me");
+                } else
+                    System.out.println("Sorry! Please put size greater than 0");
+                System.out.println("\nEnter 1 to continue or any other number to exit");
+                choice = in.nextInt();
+                if (choice != 1)
+                    System.out.println("Thank you :)");
+            }
+        }
+    }
+
+    public static String space(int n) {
+        return " ".repeat(Math.max(0, n));
+    }
+
+    public static String print_matrix() {
+        StringBuilder s = new StringBuilder();
+        int x = letters_matrix[0].length;
+        s.append(space(36)).append("   ").append(add_number()).append('\n');
+        for (int i = 0; i < letters_matrix.length; i++) {
+            char[] lettersMatrix = letters_matrix[i];
+            s.append(space(36));
+            s.append((i+1)).append("  ");
+            for (int j = 0; j < x; j++) {
+                s.append(lettersMatrix[j]).append(" ");
+            }
+            s.append('\n');
+        }
+        return s.toString();
+    }
+
+    private static String add_number() {
+        StringBuilder s= new StringBuilder();
+        for (int i = 1; i <=5 ; i++) {
+            s.append(i).append(" ");
+        }
+        return s.toString();
+    }
+
+    public static int[] reply(Scanner in,int n, int num, String word) {
+        int[] answer = new int[n];
+        int reply;
+        int counter = 0;
+            System.out.println(space(28) + "Now answer " + word + "wise");
+            System.out.println("Answer from the letter box");
+            for (int i = 1; i <= n; i++) {
+                System.out.println(print_matrix());
+                for (int j = 0; j <= num; j++) {
+                    System.out.println("If your " + "" + i + "th " +
+                            "letter of the name present in " + "" + (j + 1) + "th " + word +
+                            " if,yes enter 1 other wise 0 ");
+                    reply = in.nextInt();
+                    if (reply == 1) {
+                        answer[counter] = j;
+                        counter += 1;
+                        break;
                     }
-
-                    for (int t = 0; t <= 4; t++) {
-                        System.out.println("If your" + " " + s + " th " + "letter of the name present in " + " " + (t + 1) + " " + "column if,yes enter 1 other wise 0 ");
-                        int q = Integer.parseInt(in.nextLine());
-
-                        if (q == 1) {
-                            a[c] = t;
-                            c++;
-                            break;
-                        } else
-                            d++;
-
-                    }
-
                 }
             }
-            if (n > 0) {
-                System.out.println(space(28)+"NOW ANSWER ROW WISE");
-                for (int s = 1; s <= n; s++) {
-                    for (i = 0; i < 6; i++) {
-                        System.out.print(space(36));
-                        for (j = 0; j < 5; j++) {
-                            System.out.print(m[i][j] + " ");
-                        }
-                        System.out.println();
-                    }
-
-                    for (int t = 0; t <= 5; t++) {
-                        System.out.println("If your " + " " + s + " th " + "letter of the name present in  " + (t + 1) + " row if yes enter 1 other wise 0");
-                        int q = Integer.parseInt(in.nextLine());
-                        if (q == 1) {
-                            b[r] = t;
-                            r++;
-                            break;
-                        } else
-                            d++;
-
-                    }
-                }
-            }
-            r = 0;
-            c = 0;
-            if (n > 0 && d != (11 * n)) {
-                System.out.println(space(28)+"the name that you thought was");
-                System.out.println();
-
-                for (i = 0; i < n; i++) {
-                    c = a[i];
-                    r = b[i];
-                    System.out.print(m[r][c]);
-                }
-            } else
-                System.out.println("sorry you did not thought any name because no name can be of size  " + n + " and with no letters");
-            System.out.println();
-            System.out.println("enter 1 to continue and any other to number exit");
-            z = Integer.parseInt(in.nextLine());
-            if (z != 1)
-                System.out.println("THANKS FOR USING IT");
-            d = 0;
-        }
-        while (z == 1);
+        return answer;
     }
-    public static String space(int n){
-       String s="";
-        for (int i = 0; i < n; i++) {
-            s=s+" ";
-        }
-        return s;
-    }
+
 }

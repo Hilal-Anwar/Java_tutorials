@@ -7,7 +7,8 @@ import java.util.Arrays;
 class table {
     public static void main(String[] args) {
         long a = System.currentTimeMillis();
-        ___tree_sort(/*new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}*/randomArray(1000000));
+        //__tree_sort(/*new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}*/randomArray(10000000));
+        ____tree_sort(new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}/*randomArray(10000000)*/);
         System.out.println(System.currentTimeMillis() - a);
     }
 
@@ -220,7 +221,6 @@ class table {
                 }
             }
         }
-        // System.out.println(Arrays.deepToString(tree));
     }
 
     static void ___tree_sort(int[] a) {
@@ -229,9 +229,7 @@ class table {
         int filled_index = 0;
         int index = 0;
         int i = 1;
-        int count = 0;
         while (i < a.length) {
-            count++;
             if (tree[index][1] >= a[i]) {
                 if (tree[index][0] == -1) {
                     filled_index++;
@@ -241,6 +239,7 @@ class table {
                     index = 0;
                 } else {
                     index = tree[index][0];
+
                 }
 
             } else if (tree[index][1] <= a[i]) {
@@ -254,12 +253,13 @@ class table {
                     index = tree[index][2];
                 }
             }
+            System.out.println(Arrays.deepToString(tree));
         }
-        //System.out.println(Arrays.deepToString(tree));
+        System.out.println(Arrays.deepToString(tree));
         //int[] z = new int[a.length];
         System.out.println("tree made");
-        System.out.println(count);
-        //walking(tree);
+        //System.out.println(count);
+        walking(tree);
         //System.out.println(Arrays.toString(z));
     }
 
@@ -296,4 +296,45 @@ class table {
         }
         System.out.println(Arrays.toString(z));
     }
+
+    static void ____tree_sort(int[] a) {
+        int[][] tree = new int[a.length][];
+        tree[0] = new int[]{-1, a[0], -1, 0};
+        int filled_index = 0;
+        int index = 0;
+        int i = 1;
+        while (i < a.length) {
+            if (tree[index][1] >= a[i]) {
+                if (tree[index][0] == -1 && tree[index][3]!=-1) {
+                    filled_index++;
+                    tree[filled_index] = new int[]{-1, a[i], -1, index};
+                    tree[index][0] = filled_index;
+                    i++;
+                    index = filled_index;
+                } else {
+                    index = tree[index][3];
+
+                }
+
+            } else if (tree[index][1] <= a[i]) {
+                if (tree[index][2] == -1) {
+                    filled_index++;
+                    tree[filled_index] = new int[]{-1, a[i], -1, index};
+                    tree[index][2] = filled_index;
+                    i++;
+                    index = filled_index;
+                } else {
+                    index = tree[index][2];
+                }
+            }
+            System.out.println(Arrays.deepToString(tree));
+        }
+        System.out.println(Arrays.deepToString(tree));
+        //int[] z = new int[a.length];
+        System.out.println("tree made");
+        //System.out.println(count);
+        walking(tree);
+        //System.out.println(Arrays.toString(z));
+    }
+
 }

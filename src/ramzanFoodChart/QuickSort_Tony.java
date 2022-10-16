@@ -50,12 +50,4 @@ public class QuickSort_Tony {
         System.out.println("Sorted");
         System.out.println(Arrays.toString(a));
     }
-
-    private static int[][] addElement(int[][] arr, int[] element) {
-
-        int[][] newArray = new int[arr.length + 1][];
-        System.arraycopy(arr, 0, newArray, 0, arr.length);
-        newArray[arr.length] = element;
-        return newArray;
-    }
 }

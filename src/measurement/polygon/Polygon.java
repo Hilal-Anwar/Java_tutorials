@@ -78,8 +78,10 @@ abstract public class Polygon implements PolygonMeasurement
           }
           double val1=((xCoordinate.get(i)-xCoordinate.get(point1))*(xCoordinate.get(i)-xCoordinate.get(point2)))+
                   ((yCoordinate.get(i)-yCoordinate.get(point1))*(yCoordinate.get(i)-yCoordinate.get(point2)));
-          double val2=Math.sqrt(Math.pow((xCoordinate.get(point1)-xCoordinate.get(i)),2)+Math.pow((yCoordinate.get(point1)-yCoordinate.get(i)),2))*
-                  Math.sqrt(Math.pow((xCoordinate.get(point2)-xCoordinate.get(i)),2)+Math.pow((yCoordinate.get(point2)-yCoordinate.get(i)),2));
+          double val2=Math.sqrt(Math.pow((xCoordinate.get(point1)-xCoordinate.get(i)),2)+
+                  Math.pow((yCoordinate.get(point1)-yCoordinate.get(i)),2))*
+                  Math.sqrt(Math.pow((xCoordinate.get(point2)-xCoordinate.get(i)),2)+
+                          Math.pow((yCoordinate.get(point2)-yCoordinate.get(i)),2));
           double angle = Math.toDegrees(Math.acos(val1 / val2));
           if (concaveVertex.contains(i)||(concaveVertex.contains(xCoordinate.size())&& i==xCoordinate.size()-1))
               hashMap.put("S"+(i+1)+"_"+"S"+(point1+1),360.0- angle);

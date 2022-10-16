@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Message {
     public static void main(String[] args) {
-        String[][] a = new String[25][5];
+        String[][] a = new String[2][5];
         String[][] b = new String[5][55];
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[0].length; j++) {
