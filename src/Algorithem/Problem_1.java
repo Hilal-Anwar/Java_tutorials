@@ -22,7 +22,7 @@ public class Problem_1 {
         int healthPoint = 0;
         for (int i = 0; i < stand; i++)
         {
-            System.out.println("Enter the code for dna");
+            System.out.println("Enter the tutorials_3 for dna");
             String c = new Scanner(System.in).nextLine(), sub = "";
             DNACode[i] = c;
             System.out.println("Enter the start point of healthy gene");
