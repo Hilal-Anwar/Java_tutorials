@@ -1,20 +1,20 @@
 package Algorithem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class KickStart {
-    public static void main(String[] args)
-    {
-        int group = 0,score=0;
+    public static void main(String[] args) {
+        int group = 0, score = 0;
         String prefix_1, prefix_2;
         ArrayList<String> a = new ArrayList<>();
         ArrayList<String> ho = new ArrayList<>();
         ArrayList<Integer> it = new ArrayList<>();
         System.out.println("Enter the number of elements");
-        int size=new Scanner(System.in).nextInt();
+        int size = new Scanner(System.in).nextInt();
         System.out.println("Enter the elements one by one up to the number of elements entered above");
-        for (int x=0;x<size;x++)a.add(new Scanner(System.in).nextLine());
+        for (int x = 0; x < size; x++) a.add(new Scanner(System.in).nextLine());
         System.out.println("Enter the group size");
         int gSize = new Scanner(System.in).nextInt();
         for (String x : a) group = Math.max(group, x.length());
@@ -41,12 +41,12 @@ public class KickStart {
                 for (String s : ho)
                     a.remove(s);
                 System.out.println("Score  " + k);
-                score=score+k;
+                score = score + k;
                 System.out.println(ho);
             }
             ho.clear();
             it.clear();
         }
-        System.out.println("Total score of DataStructure.Pip is  "+score);
+        System.out.println("Total score of DataStructure.Pip is  " + score);
     }
 }

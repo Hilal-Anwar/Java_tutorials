@@ -6,8 +6,7 @@ public class GenericsFun {
     }
 
     public static void main(String[] args) {
-        var t=
-                swap(5,"Helal anwar");
+        var t= swap(5,"Helal anwar");
         System.out.println(t);
         System.out.println(t.value1() instanceof String);
     }

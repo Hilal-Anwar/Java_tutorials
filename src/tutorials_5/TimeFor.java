@@ -2,7 +2,9 @@ package tutorials_5;
 
 import java.util.*;
 
-import static tutorials_5.Print.println;
+
+import static util.Util.println;
+
 public class TimeFor {
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>(new HashSet<>());

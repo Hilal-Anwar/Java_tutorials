@@ -25,11 +25,14 @@ public final class ASCII {
             if (sb.length() != 0) sb.append("\n");
             for (int x = 0; x < image.getWidth(); x++) {
                 Color pixelColor = new Color(image.getRGB(x, y));
-                double gValue = (double) pixelColor.getRed() * 0.2989 + (double) pixelColor.getBlue() * 0.5870 + (double) pixelColor.getGreen() * 0.1140;
+                System.out.println(image.getRGB(x, y));
+                double gValue = (double) pixelColor.getRed() * 0.2989 +
+                        (double) pixelColor.getBlue() * 0.5870 + (double) pixelColor.getGreen() * 0.1140;
                 final char s = negative ? returnStrNeg(gValue) : returnStrPos(gValue);
                 sb.append(s);
             }
         }
+
         return sb.toString();
     }
 
@@ -60,10 +63,11 @@ public final class ASCII {
             str = '&';
         } else if (g >= 70.0) {
             str = '8';
+
         } else if (g >= 50.0) {
             str = '#';
         } else {
-            str = '@';
+            str = ' ';
         }
         return str; // return the character
 

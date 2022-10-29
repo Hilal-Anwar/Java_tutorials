@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+
 public class ASCIIArtGenerator {
 
     public static final int ART_SIZE_SMALL = 12;
@@ -49,15 +50,16 @@ public class ASCIIArtGenerator {
 
         Graphics2D graphics = (Graphics2D) g;
         graphics.drawString(artText, 0, getBaselinePosition(g, font));
-
+        var value=new StringBuilder();
         for (int y = 0; y < textHeight; y++) {
             StringBuilder sb = new StringBuilder();
             for (int x = 0; x < imageWidth; x++)
                 sb.append(image.getRGB(x, y) == Color.WHITE.getRGB() ? artSymbol : " ");
             if (sb.toString().trim().isEmpty())
                 continue;
-            System.out.println(sb);
+            value.append(sb).append('\n');
         }
+        System.out.println(value);
     }
 
     private void printTextArt(String artText, int textHeight) {
