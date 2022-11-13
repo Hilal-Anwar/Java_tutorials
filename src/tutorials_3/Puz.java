@@ -4,10 +4,10 @@ package tutorials_3;
 public class Puz {
     public static void main(String[] args) throws InterruptedException {
         int r = 0;
-        Draw(30, 24);
+        //Draw(30, 24);
         while (true) {
-            Draw(30, r);
-            r = (r < 29) ? r + 1 : 0;
+            Draw(15, r);
+            r = (r < 14) ? r + 1 : 0;
             Thread.sleep(60);
             clrscr();
         }
@@ -33,7 +33,7 @@ public class Puz {
     }
 
     public static void clrscr() {
-        System.out.print("\033[H\033[2J");
+        System.out.print("\033[H\033[J");
         System.out.flush();
     }
 
