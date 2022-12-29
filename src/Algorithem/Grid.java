@@ -17,7 +17,7 @@ public class Grid {
                 ex.printStackTrace();
             }*/
 
-            JFrame frame = new JFrame("Testing");
+            JFrame frame = new JFrame("My App");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.add(new TestPane());
             frame.pack();
@@ -33,7 +33,7 @@ public class Grid {
 
         @Override
         public Dimension getPreferredSize() {
-            return new Dimension(200, 200);
+            return new Dimension(500, 500);
         }
 
         protected void paintComponent(Graphics g) {
@@ -48,6 +48,7 @@ public class Grid {
                 int x = (getWidth() - (size * 10)) / 2;
                 for (int vert = 0; vert < 10; vert++) {
                     g.drawRect(x, y, size, size);
+
                     x += size;
                 }
                 y += size;

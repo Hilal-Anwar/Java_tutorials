@@ -13,7 +13,7 @@ public class Circle {
             double[] h = getCoordinate(localTime.getHour() * 5, R);
             double[] m = getCoordinate(localTime.getMinute(), R);
             double[] s = getCoordinate(localTime.getSecond(), R);
-            Draw(R, r, h[0],h[1], m[0],m[1], s[0],s[1]);
+            Draw(R, r, h[0], h[1], m[0], m[1], s[0], s[1]);
             Thread.sleep(1000);
             clrscr();
         }
@@ -48,21 +48,21 @@ public class Circle {
     }
 
     private static void Draw(double R, double r, double H, double h, double M, double m, double S, double s) {
-        String s1 = "";
+        StringBuilder s1 = new StringBuilder();
         for (double i = 0; i <= 2 * R; i++) {
             for (double j = 0; j <= 2 * R; j++) {
                 char x = (char) (Math.random() * 60 + 60);
                 if (donut(j, i, R, r) || (i == R && j == R))
-                    s1 = s1 + "*" + "  ";
-                else if(clock_Hands(j, i, R, r, H, h))
-                    s1 = s1 + "h" + "  ";
-                else if(clock_Hands(j, i, R, r, M, m))
-                    s1 = s1 + "m" + "  ";
+                    s1.append("██");
+                else if (clock_Hands(j, i, R, r, H, h))
+                    s1.append("██");
+                else if (clock_Hands(j, i, R, r, M, m))
+                    s1.append("██");
                 else if (clock_Hands(j, i, R, r, S, s))
-                    s1 = s1 + "s" + "  ";
-                else s1 = s1 + "   ";
+                    s1.append("██");
+                else s1.append("  ");
             }
-            s1 = s1 + '\n';
+            s1.append('\n');
         }
         System.out.println(s1);
     }
@@ -101,8 +101,9 @@ public class Circle {
                 (slope2 == Double.NEGATIVE_INFINITY && slope1 == Double.POSITIVE_INFINITY);
     }
 
-    public static void clrscr() throws IOException, InterruptedException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    public static void clrscr() {
+        System.out.print("\033[H\033[J");
+        System.out.flush();
 
     }
 }

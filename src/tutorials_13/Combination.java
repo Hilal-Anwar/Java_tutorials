@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Combination {
-    static  int []list = new int[]{1, 2, 3, 4, 5, 6};
     public static void main(String[] args) {
-        var m = new int[]{1, 2, 3, 4, 5, 6};
+        /*var m = new int[]{1, 2, 3, 4, 5, 6};
         var list = new ArrayList<Integer>();
         var l = new int[3];
         combination(0, 4, m, list, 0, l);
@@ -16,8 +15,9 @@ public class Combination {
         var lst = new TreeSet<Integer>();
         combination(0, 2, m, lst, 1, 0);
         System.out.println(lst);
-        System.out.println(lst.size());
-        combination(0,2,1,0);
+        System.out.println(lst.size());*/
+        int[]a={1, 2, 3, 4, 5, 6};
+        combination(a,0,2,1,0);
     }
 
     static void combination(int startIndex, int digits, int[] memory, ArrayList<Integer> listOfNumbers, int count, int[] val) {
@@ -54,18 +54,17 @@ public class Combination {
 
         }
     }
-    static void combination(int i, int digits,int count, int number) {
+    static void combination(int []list,int i, int digits,int count, int number) {
         for (; i < list.length; i++) {
             if (count < digits) {
                 number = number * 10 + list[i];
                 count++;
-                combination(i + 1, digits,count, number);
+                combination(list,i + 1, digits,count, number);
                 count--;
                 number = number / 10;
             } else {
-                System.out.println(number * 10 + list[i]);
+                System.out.printf("%d , ",number * 10 + list[i]);
             }
-
         }
     }
 }

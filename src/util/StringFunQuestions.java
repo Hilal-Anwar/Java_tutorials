@@ -1,24 +1,23 @@
 package util;
 
-import java.io.IOException;
+
 import java.util.Arrays;
 
 import static util.Util.println;
 
 class StringFunQuestions {
     public static void main(String[] args) {
-        var count = new StringFunQuestions();
-        String s = "I love to code";
-        println("No of words =" + count.countWords(s));
+      var st=new StringFunQuestions();
+      println(st.countWords("I love to code"));
     }
-
-    long countWords(String str) {
+    long countWords(String str){
         return Arrays.
-                stream(str.split("[\\s.,\n\\d]")).
-                filter(x -> !x.equals("")).count();
+        stream(str.split("[\\s,.\\d\n]")).
+        filter(StringFunQuestions::isNotEmpty).count();
     }
-
-
+    static boolean isNotEmpty(String str){
+        return !str.isEmpty();
+    }
     String charFrequency(String str) {
         var a = str.toCharArray();
         Arrays.sort(a);

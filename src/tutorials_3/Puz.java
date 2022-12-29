@@ -1,21 +1,27 @@
 package tutorials_3;
 
-
-public class Puz {
-    public static void main(String[] args) throws InterruptedException {
+class Puz{
+    public static void main(String[] args) 
+    throws InterruptedException {
         int r = 0;
         //Draw(30, 24);
         while (true) {
             Draw(15, r);
             r = (r < 14) ? r + 1 : 0;
-            Thread.sleep(60);
+            Thread.sleep(150);
             clrscr();
         }
     }
 
-    private static boolean donut(double x, double y, double R, double r) {
-        return (Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(R, 2) - 2 * R * (x + y)) <= 0
-                && (Math.pow(x, 2) + Math.pow(y, 2) + 2 * Math.pow(R, 2) - 2 * R * (x + y)) >= r * r;
+    private static boolean donut(double x, double y,
+     double R, double r) {
+        
+        return (Math.pow(x, 2) +
+                Math.pow(y, 2) +
+                Math.pow(R, 2) - 2 * R * (x + y)) <= 0
+                && (Math.pow(x, 2) +
+                Math.pow(y, 2) + 2 *
+                Math.pow(R, 2) - 2 * R * (x + y)) >= r * r;
     }
 
     private static void Draw(double R, double r) {
@@ -24,12 +30,15 @@ public class Puz {
             for (double j = 0; j <= 2 * R; j++) {
                 char x = (char) (Math.random() * 57 + 65);
                 if (donut(j, i, R, r))
-                    shape.append(getText("" + x)).append(" ");
+                    shape.append(getText("" + x)).
+                    append(" ");
                 else shape.append("  ");
             }
             shape.append('\n');
         }
-        System.out.println(shape.toString().indent(50));
+        System.out.println();
+        System.out.println();
+        System.out.println(shape.toString().indent(5));
     }
 
     public static void clrscr() {
@@ -38,10 +47,13 @@ public class Puz {
     }
 
     public static String getText(String s) {
-        return Color.valueOf("" + Color.values()[(int) (Math.random() * 8)]).getColor() + s + "\33[0m";
+        return Color.valueOf("" + 
+        Color.values()[(int) (Math.random() * 8)])
+        .getColor() + s + "\33[0m";
     }
-}
 
+
+}
 enum Color {
     RED("\033[0;31m"),   // RED
     GREEN("\033[0;32m"),   // GREEN
@@ -62,4 +74,3 @@ enum Color {
     }
 
 }
-

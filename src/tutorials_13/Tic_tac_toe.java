@@ -33,7 +33,7 @@ class Tic_tac_toe implements buttons {
             }
             if (k == 1) {
                 if (w.equals("Computer"))
-                System.out.println("You loose");
+                    System.out.println("You loose");
                 else
                     System.out.println(w + " player " + "won");
                 thank();
@@ -80,7 +80,7 @@ class Tic_tac_toe implements buttons {
                 if (Box[but[0]][but[1]].equals(" ")) {
                     Box[but[0]][but[1]] = "0";
                     break;
-                } 
+                }
             }
         } else if (Box[y[0]][x[1]].equals(" ") || Box[y[1]][x[0]].equals(" ") || Box[y[1]][x[2]].equals(" ") || Box[y[2]][x[1]].equals(" ")) {
             while (true) {
@@ -177,14 +177,11 @@ class Tic_tac_toe implements buttons {
     }
 
     private String opt(int x) {
-        switch (x) {
-            case 1:
-                return "Computer";
-            case 2:
-                return "Other";
-            default:
-                return "Invalid";
-        }
+        return switch (x) {
+            case 1 -> "Computer";
+            case 2 -> "Other";
+            default -> "Invalid";
+        };
     }
 
     void board(String name) {
@@ -327,6 +324,7 @@ class Tic_tac_toe implements buttons {
         System.out.println("Thanks for playing");
     }
 }
+
 interface buttons {
     int[][][][] Defender = {{{{1, 7}, {1, 12}}, {{5, 2}, {3, 2}}, {{3, 7}, {5, 12}}},
             {{{1, 12}, {1, 2}}, {{3, 7}, {5, 7}}},
