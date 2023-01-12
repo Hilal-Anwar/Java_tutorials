@@ -8,7 +8,9 @@ import static util.Util.println;
 class StringFunQuestions {
     public static void main(String[] args) {
       var st=new StringFunQuestions();
+      println("Number of words in your sentence are:");
       println(st.countWords("I love to code"));
+      println(st.charFrequency("Pineapple"));
     }
     long countWords(String str){
         return Arrays.
@@ -36,8 +38,7 @@ class StringFunQuestions {
             count++;
         }
         va.append(a[a.length - 1]).
-                append("=").append("1")
-                .append(",");
-        return va.toString();
+                append("=").append("1");
+        return "{"+va.toString()+"}";
     }
 }

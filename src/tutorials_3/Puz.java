@@ -6,8 +6,8 @@ class Puz{
         int r = 0;
         //Draw(30, 24);
         while (true) {
-            Draw(15, r);
-            r = (r < 14) ? r + 1 : 0;
+            Draw(100, r);
+            r = (r < 25) ? r + 1 : 0;
             Thread.sleep(150);
             clrscr();
         }
@@ -30,9 +30,9 @@ class Puz{
             for (double j = 0; j <= 2 * R; j++) {
                 char x = (char) (Math.random() * 57 + 65);
                 if (donut(j, i, R, r))
-                    shape.append(getText("" + x)).
+                    shape.append(getText(x+" ")).
                     append(" ");
-                else shape.append("  ");
+                else shape.append("   ");
             }
             shape.append('\n');
         }
