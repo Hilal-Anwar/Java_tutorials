@@ -1,5 +1,6 @@
 package tutorials_12;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BubbleSort
@@ -7,13 +8,10 @@ public class BubbleSort
     public static void main(String[] args) {
         System.out.println("Enter a array");
         Scanner in=new Scanner(System.in);
-        int []a=new int [10];
+        int []a=randomArray(10);
         int temp;
         for (int i=0;i<10;i++){
-            a[i]=in.nextInt();
-        }
-        for (int i=0;i<10;i++){
-            for (int j=0;j<9;j++){
+            for (int j=0;j<9-i;j++){
                 if (a[j+1]<a[j])
                 {
                     temp=a[j];
@@ -23,7 +21,14 @@ public class BubbleSort
             }
         }
         System.out.println("The sorted array is");
-        for (int b=0;b<10;b++)
-            System.out.println(a[b]);
+        System.out.println(Arrays.toString(a));
+    }
+    private static int[] randomArray(int n) {
+        int[] a = new int[n];
+        for (int j = 0; j < n; j++) {
+            a[j] = (int) (Math.random() * n + j);
+        }
+        System.out.println("Array is filled");
+        return a;
     }
 }

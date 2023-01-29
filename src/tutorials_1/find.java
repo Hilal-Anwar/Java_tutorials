@@ -144,17 +144,13 @@ public class find {
         return n >= 0 ? fibonacci_series(b, a + b, n - 1, s + " " + (a + b)) : s;
     }
 
-    static boolean IsKaprekarNumber(int n) {
-        int sq = n * n, t = sq, c = 0;
-        while (sq > 0) {
+    static boolean isKaprekarNumber(int n) {
+        int sq = n * n, t = n, c = 0;
+        while (n > 0) {
             c += 1;
-            sq /= 10;
+            n /= 10;
         }
-        int k = c / 2;
-        int a = (int) pow(10, k);
-        int b = a * 10;
-        return (c % 2 == 0 && t % a + t / a == n) ||
-                (c % 2 == 1 && t % b + t / b == n);
+        return sq % c + sq / c == t;
     }
 
     static boolean isCyclicNumber(long a) {
@@ -177,13 +173,10 @@ public class find {
         return true;
     }
 
-    static boolean isHappyNumber(int n)
-    {
-        do
-        {
+    static boolean isHappyNumber(int n) {
+        do {
             int sum = 0;
-            while (n > 0)
-            {
+            while (n > 0) {
                 sum += pow(n % 10, 2);
                 n /= 10;
             }

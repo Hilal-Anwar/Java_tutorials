@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class LookBackSort {
     public static void main(String[] args) {
-        int []num=randomArray(100000); //array
+        //int []num=randomArray(10); //array
+        int num[]={-20, 1, 5, 4, -16, 7, 12, 9, 59, 70};
         for (int i = 0; i < num.length-1; i++)
         {
             for (int j = i+1; j >= 1; j--)
@@ -18,14 +19,15 @@ public class LookBackSort {
                 else break;
             }
         }
-        //for printing the array
-        System.out.println(Arrays.toString(num));
+        for (int i = 0; i < num.length; i++) {
+            System.out.println(num[1]);
+        }
     }
 
     private static int[] randomArray(int n) {
         int [] a=new int[n];
         for (int i = 0; i < n; i++) {
-            a[i]=(int)(Math.random()*i);
+            a[i]=(int)(Math.random()*i*i+i);
         }
         System.out.println("The array is filled");
         return a;

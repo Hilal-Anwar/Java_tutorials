@@ -19,8 +19,10 @@ public class Pattern {
                 k = a.length;
             else k = k + 2;
         }
-        for (String[] strings : a) {
-            for (String s:strings) {
+        for (int i = 0; i < a.length; i++) {
+            String[] strings = a[i];
+            for (int j = 0; j < strings.length; j++) {
+                String s = strings[j];
                 System.out.print(s + " ");
             }
             System.out.println();

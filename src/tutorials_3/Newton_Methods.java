@@ -3,8 +3,8 @@ package tutorials_3;
 public class Newton_Methods {
     public static void main(String[] args) {
         System.out.println(sqrt(Double.MAX_VALUE));
-        System.out.println(n_root(Double.MAX_VALUE, 300000000.0));
-        System.out.println(Math.pow(Double.MAX_VALUE, 1.0 / 3000.0));
+        System.out.println(Math.pow(Math.E, 3.3051833194862227E-7));
+        System.out.println(n_root(Math.E, Double.MAX_VALUE));
     }
 
     static double sqrt(double number) {
@@ -16,7 +16,7 @@ public class Newton_Methods {
             k++;
             sqrt = (number / tem + tem) / 2;
         }
-        System.out.println(k);
+        System.out.println(sqrt);
         return sqrt;
     }
 
@@ -25,12 +25,10 @@ public class Newton_Methods {
         double sqrt = (number + power - 1) / power;
         //System.out.println(sqrt);
         double tem = 0;
-        int k = 0;
         while (tem != sqrt) {
             tem = sqrt;
-            k++;
-            sqrt = (number / Math.pow(tem, power - 1) + (tem * (power - 1))) / power;
-            System.out.println(sqrt);
+            sqrt = (number / Math.pow(tem, power - 1) + tem * (power - 1)) / power;
+           System.out.println(sqrt);
         }
         //System.out.println(k);
         return sqrt;
