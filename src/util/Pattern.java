@@ -8,7 +8,7 @@ import java.math.BigInteger;
  */
 public class Pattern {
     public static void main(String[] args) {
-        int size = 12;
+        int size = 8;
         int start = size, end = size;
         //System.out.println(combination(BigInteger.valueOf(size), BigInteger.valueOf(size / 2)));
         int max = combination(BigInteger.valueOf(size), BigInteger.valueOf(size / 2)).length();
@@ -25,7 +25,8 @@ public class Pattern {
                         System.out.print(adjustSpace(" ", max));
                         c = 0;
                     }
-                } else System.out.print(adjustSpace(" ", max));
+                } else if(j<=end) System.out.print(adjustSpace(" ", max));
+                else break;
             }
             start = start - 1;
             end = end + 1;

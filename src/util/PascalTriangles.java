@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class PascalTriangles {
     public static void main(String[] args) {
-        draw_pascal_triangle(20);
+        draw_pascal_triangle(8);
     }
 
     public static void draw_pascal_triangle(int size) {
@@ -20,8 +20,8 @@ public class PascalTriangles {
             int c = 0;
             int k = 0;
             val=pascal(val,0,0);
-            for (int j = 0; j <= 2 * size; j++) {
-                if (j >= start && j <= end) {
+            for (int j = 0; j<=end; j++) {
+                if (j >= start) {
                     if (c == 0) {
                         System.out.print(adjustSpace(""+val[k], max));
                         c = 1;
