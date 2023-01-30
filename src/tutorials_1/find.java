@@ -145,12 +145,9 @@ public class find {
     }
 
     static boolean isKaprekarNumber(int n) {
-        int sq = n * n, t = n, c = 0;
-        while (n > 0) {
-            c += 1;
-            n /= 10;
-        }
-        return sq % c + sq / c == t;
+        int sq = n * n, c = 0;
+        for (int i = n; i > 0; i /= 10) c += 1;
+        return sq % c + sq / c == n;
     }
 
     static boolean isCyclicNumber(long a) {

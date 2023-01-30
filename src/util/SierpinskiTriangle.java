@@ -1,50 +1,48 @@
 package util;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-
 /**
- * @author hilal on 29-01-2023
+ * @author hilal on 31-01-2023
  * @project Java_tutorials
  */
-public class PascalTriangles {
+public class SierpinskiTriangle {
     public static void main(String[] args) {
-        draw_pascal_triangle(100);
+        int value = Integer.parseInt(args[0]);
+        System.out.println(sierpinski_triangle(value));
     }
 
-    public static void draw_pascal_triangle(int size) {
+    public static String sierpinski_triangle(int size) {
         int start = size, end = size;
-        long []val={};
-        int max=(""+pascal(new long[]{1}, 0, size)[size/2]).length();
+        StringBuilder s = new StringBuilder();
+        long[] val = {};
         for (int i = 0; i <= size; i++) {
             int c = 0;
             int k = 0;
-            val=pascal(val,0,0);
-            for (int j = 0; j<=end; j++) {
+            val = pascal(val, 0, 0);
+            for (int j = 0; j <= end; j++) {
                 if (j >= start) {
                     if (c == 0) {
-                        System.out.print(adjustSpace(""+val[k], max));
+                        var num = val[k];
+                        s.append(num == 1 ? val[k] : " ");
                         c = 1;
                         k++;
                     } else {
-                        System.out.print(adjustSpace(" ", max));
+                        s.append(" ");
                         c = 0;
                     }
-                } else System.out.print(adjustSpace(" ", max));
+                } else s.append(" ");
             }
             start = start - 1;
             end = end + 1;
-            System.out.println();
+            s.append('\n');
         }
+        return s.toString();
     }
-    static String adjustSpace(String s, int max) {
-        return (s + " ".repeat(max - s.length()));
-    }
+
     public static long[] pascal(long[] a, int index, int max_size) {
         long[] tem = new long[a.length + 1];
         tem[0] = 1;
         for (int i = 1; i < a.length; i++) {
-            tem[i] = a[i - 1] + a[i];
+            tem[i] = (a[i - 1] + a[i]) % 2;
         }
         tem[a.length] = 1;
         return (index < max_size) ? pascal(tem, index + 1, max_size) : tem;
