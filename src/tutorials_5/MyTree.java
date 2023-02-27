@@ -183,7 +183,7 @@ public class MyTree <T,R> implements SortedMap<T,R> {
      * this map contains at least one mapping to a value {@code v} such that
      * {@code Objects.equals(value, v)}.  This operation
      * will probably require time linear in the map size for most
-     * implementations of the {@code Map} interface.
+     * implementations of the {@code Maps} interface.
      *
      * @param value value whose presence in this map is to be tested
      * @return {@code true} if this map maps one or more keys to the

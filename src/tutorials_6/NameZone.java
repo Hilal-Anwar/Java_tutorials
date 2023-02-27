@@ -7,9 +7,13 @@ This  program allows you to play a game of name with computer so think a name
 import java.util.Scanner;
 
 class NameZone {
-    static char[][] letters_matrix = {{'A', 'B', 'C', 'D', 'E'}, {'F', 'G', 'H', 'I', 'J'},
-            {'K', 'L', 'M', 'N', 'O',}, {'P', 'Q', 'R', 'S', 'T'}, {'U', 'V', 'W', 'X', 'Y'},
-            {'Z', ' ', ' ', ' ', ' '}};
+    static char[][] letters_matrix = 
+    {{'A', 'B', 'C', 'D', 'E'}, 
+    {'F', 'G', 'H', 'I', 'J'},
+    {'K', 'L', 'M', 'N', 'O',}, 
+    {'P', 'Q', 'R', 'S', 'T'}, 
+    {'U', 'V', 'W', 'X', 'Y'},
+    {'Z', ' ', ' ', ' ', ' '}};
 
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in)) {
