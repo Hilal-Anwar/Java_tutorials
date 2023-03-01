@@ -6,7 +6,7 @@ import java.io.*;
 public class IntrospectorDemo{
     public static void main(String[] args) {
         try {
-            var c=Class.forName("tutorials_3.Colors");
+            var c=Class.forName("Colors");
             var objectOutputStream=new ObjectOutputStream(new FileOutputStream("serial"));
             objectOutputStream.writeObject(c);
             var  beanInfo= Introspector.getBeanInfo(c);
