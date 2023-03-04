@@ -3,7 +3,7 @@ package util;
 import java.util.Scanner;
 
 public class Parcel {
-    public static void main(String[] args) {
+    public void calculate() {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the mass in gram");
         int mass = in.nextInt();

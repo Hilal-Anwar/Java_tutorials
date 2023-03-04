@@ -1,6 +1,6 @@
 package util;
 
-public class Test {
+public class Test extends Parcel {
     public static void main(String[] args) {
         String st, code;
         int k = 0;
@@ -17,7 +17,7 @@ public class Test {
         }
     }
 
-    static String adjustSpace(String s, String s1) {
+    public static String adjustSpace(String s, String s1) {
         return (s + " ".repeat(3 - s1.length()));
     }
 }
