@@ -10,7 +10,7 @@ public class pattern {
         int size = new Scanner(System.in).nextInt();
         for (int i = 1; i <= size / 2; i++) {
             if (condition)
-                circle(size, size - 2*i+1, 2*i);
+                circle(size, size - 2 * i + 1, 2 * i);
             else
                 hollow(size, i);
             if (i == size / 2) {
@@ -58,15 +58,14 @@ public class pattern {
         int k = 1;
         for (int i = 1; i <= size; i++) {
             for (int j = 1; j <= size; j++) {
-                if (i >= begin && i <= d)
-                {
+                if (i >= begin && i <= d) {
                     if (j > value(d / 2, k) && j <= cord(d / 2, k))
                         System.out.print(" * ");
                     else System.out.print("   ");
                 } else System.out.print("   ");
             }
             if (i >= begin && i <= d)
-            k++;
+                k++;
             System.out.println();
         }
     }

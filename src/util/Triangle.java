@@ -18,12 +18,11 @@ public class Triangle {
         Parcel r=(Parcel) classLoader.loadClass("util.Test").getDeclaredConstructor().newInstance();
         r.calculate();*/
         long a = System.currentTimeMillis();
-        _generatePythagorean_triplet(3, 800000000);
+        _generatePythagorean_triplet(3, 20000000);
         System.out.println(System.currentTimeMillis() - a);
     }
 
     private static void _generatePythagorean_triplet(int start, int end) {
-        StringBuilder s = new StringBuilder();
         int m = (start - 1) / 2;
         int n = m + 1;
         int a, b, c;

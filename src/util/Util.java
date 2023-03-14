@@ -1,7 +1,6 @@
 package util;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public final class Util {
     public static void print(Object object) {

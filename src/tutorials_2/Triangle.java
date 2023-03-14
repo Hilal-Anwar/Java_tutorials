@@ -14,16 +14,16 @@ public class Triangle
 {
     public static void main(String[] args) {
         long c=System.currentTimeMillis();
-        PYTHOGORIAN_TRIPLATE(10000);
+        PYTHOGORIAN_TRIPLATE(20);
         System.out.println(System.currentTimeMillis()-c);
     }
     public static void PYTHOGORIAN_TRIPLATE(int n){
         int ct=0;
         for (int i = 3; i <=n ; i++) {
-            for (int j = i-1; j >=3 ; j--) {
-                for (int k = j-1; k >=3 ; k--) {
-                    if (i*i==k*k+j*j){
-                        //System.out.println(k+" "+j+" "+i);
+            for (int j = i+1; j <=n ; j++) {
+                for (int k = j+1; k <=n ; k++) {
+                    if (i*i+j*j==k*k){
+                        System.out.println(i+" "+j+" "+k);
                         ct++;
                     }
                 }

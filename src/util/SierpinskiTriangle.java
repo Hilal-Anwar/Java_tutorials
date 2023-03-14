@@ -32,7 +32,7 @@ public class SierpinskiTriangle {
                     }
                 } else s.append(" ");
             }
-            if ((i + 1) % 4 == 0 ) {
+            if ((i + 1) % 4 == 0) {
                 t = t == 7 ? 0 : t + 1;
             }
             start = start - 1;
