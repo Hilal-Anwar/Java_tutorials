@@ -6,7 +6,7 @@ class Puz{
         int r = 0;
         //Draw(30, 24);
         while (true) {
-            Draw(100, r);
+            Draw(25, r);
             r = (r < 25) ? r + 1 : 0;
             Thread.sleep(150);
             clrscr();
@@ -30,9 +30,9 @@ class Puz{
             for (double j = 0; j <= 2 * R; j++) {
                 char x = (char) (Math.random() * 57 + 65);
                 if (donut(j, i, R, r))
-                    shape.append(getText(x+" ")).
+                    shape.append(getText(x+"")).
                     append(" ");
-                else shape.append("   ");
+                else shape.append("  ");
             }
             shape.append('\n');
         }
@@ -43,7 +43,6 @@ class Puz{
 
     public static void clrscr() {
         System.out.print("\033[H\033[J");
-        System.out.flush();
     }
 
     public static String getText(String s) {

@@ -7,7 +7,7 @@ public class pattern23
         {
             for (int j=i;j<=5;j++)
                 System.out.print("*".indent(i-1));
-            System.out.println();
+            //System.out.println();
         }
     }
 }

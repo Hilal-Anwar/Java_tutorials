@@ -13,12 +13,12 @@ public class ASCIIArtGenerator {
     public static final int ART_SIZE_SMALL = 12;
     public static final int ART_SIZE_MEDIUM = 18;
     public static final int ART_SIZE_LARGE = 24;
-    public static final int ART_SIZE_HUGE = 32;
+    public static final int ART_SIZE_HUGE = 72;
 
     private static final String DEFAULT_ART_SYMBOL = "*";
 
     public enum ASCIIArtFont {
-        ART_FONT_DIALOG("Dialog"), ART_FONT_DIALOG_INPUT("DialogInput"),
+        ART_FONT_DIALOG("Old English Text MT"), ART_FONT_DIALOG_INPUT("DialogInput"),
         ART_FONT_MONO("Monospaced"),ART_FONT_SERIF("Serif"), ART_FONT_SANS_SERIF("SansSerif");
 
         private String value;
@@ -35,7 +35,7 @@ public class ASCIIArtGenerator {
     public static void main(String[] args) throws Exception {
         ASCIIArtGenerator artGen = new ASCIIArtGenerator();
         System.out.println();
-        artGen.printTextArt(args[0], ASCIIArtGenerator.ART_SIZE_MEDIUM, ASCIIArtFont.ART_FONT_DIALOG,args[1]);
+        artGen.printTextArt(args[0], ASCIIArtGenerator.ART_SIZE_HUGE, ASCIIArtFont.ART_FONT_DIALOG,args[1]);
         System.out.println();
 
     }

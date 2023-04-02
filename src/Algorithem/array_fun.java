@@ -118,7 +118,11 @@ public class array_fun {
                     mid = (end + start) / 2;
                     if (arr[i] == nArr[mid]) {
                         if (k + 1 - (mid + 1) >= 0)
-                            System.arraycopy(nArr, mid + 1, nArr, mid + 1 + 1, k + 1 - (mid + 1));
+                            System.arraycopy(nArr,
+                                    mid + 1,
+                                    nArr,
+                                    mid + 1 + 1,
+                                    k + 1 - (mid + 1));
                         nArr[mid + 1] = arr[i];
                         k++;
                         break;
@@ -129,12 +133,19 @@ public class array_fun {
                 }
                 if (nArr[mid] < arr[i]) {
                     if (k + 1 - (mid + 1) >= 0)
-                        System.arraycopy(nArr, mid + 1, nArr, mid + 1 + 1, k + 1 - (mid + 1));
+                        System.arraycopy(nArr,
+                                mid + 1,
+                                nArr,
+                                mid + 1 + 1,
+                                k + 1 - (mid + 1));
                     nArr[mid + 1] = arr[i];
                     k++;
                 } else if (nArr[mid] > arr[i]) {
                     if (k + 1 - mid >= 0)
-                        System.arraycopy(nArr, mid, nArr, mid + 1, k + 1 - mid);
+                        System.arraycopy(nArr,
+                                mid, nArr,
+                                mid + 1,
+                                k + 1 - mid);
                     nArr[mid] = arr[i];
                     k++;
                 }
@@ -161,6 +172,4 @@ public class array_fun {
         }
         return c==a.length;
     }
-
-
 }

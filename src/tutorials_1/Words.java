@@ -1,27 +1,29 @@
 package tutorials_1;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.util.Scanner;
 
 /*
 Write a program to input a sentence and count the number of words.
  */
 public class Words {
-    public static void main(String[] args) throws IOException {
-        var read=new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
         System.out.println("Enter a sentence");
-        String str=read.readLine();
-        int start=0;
-        int count=0;
-        int previous=0;
-        while (str.indexOf(" ", start) != -1) {
-            if(str.indexOf(" ", start)-previous>1){
-                count++;
+        String s = in.nextLine();
+        int count = 0;
+        s = s.trim();
+        int k = 0;
+        char c;
+        for (int i = 0; i < s.length(); i++) {
+            c = s.charAt(i);
+            if (c != ' ')
+                k = 0;
+            else if (k == 0) {
+                count += 1;
+                k = i;
             }
-            previous=str.indexOf(" ", start);
-            start = str.indexOf(" ", start) + 1;
         }
-        System.out.println("Total number of words are : "+(count+1));
+        System.out.println("Total number of words are : " + (count + 1));
     }
 }
