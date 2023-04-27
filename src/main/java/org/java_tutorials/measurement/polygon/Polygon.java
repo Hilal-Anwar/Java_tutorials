@@ -1,4 +1,4 @@
-package main.java.org.jmath.measurement.polygon;
+package org.java_tutorials.measurement.polygon;
 
 import java.util.ArrayList;
 import java.util.Arrays;

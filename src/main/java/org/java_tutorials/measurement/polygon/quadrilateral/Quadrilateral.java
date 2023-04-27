@@ -1,6 +1,7 @@
-package main.java.org.jmath.measurement.polygon.quadrilateral;
+package org.java_tutorials.measurement.polygon.quadrilateral;
 
-import main.java.org.jmath.measurement.polygon.Polygon;
+
+import org.java_tutorials.measurement.polygon.Polygon;
 
 public class Quadrilateral extends Polygon {
     public Quadrilateral(String v1, String v2, String v3, String v4) {

@@ -1,4 +1,4 @@
-package main.java.org.jmath.helal_anwar.Number;
+package org.java_tutorials.helal_anwar.Number;
 
 public class Digits {
     public static String [][] zero(int size,char s)

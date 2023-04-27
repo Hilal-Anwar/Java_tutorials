@@ -1,7 +1,9 @@
-package main.java.org.jmath.helal_anwar;
+package org.java_tutorials.helal_anwar;
 
-import main.java.org.jmath.helal_anwar.Alphabet.UpperCase;
-import main.java.org.jmath.helal_anwar.Number.Digits;
+
+
+import org.java_tutorials.helal_anwar.Alphabet.UpperCase;
+import org.java_tutorials.helal_anwar.Number.Digits;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package main.java.org.jmath.measurement.polygon.quadrilateral;
+package org.java_tutorials.measurement.polygon.quadrilateral;
 import java.util.TreeMap;
 
 public class Rhombus {

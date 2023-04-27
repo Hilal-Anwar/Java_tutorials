@@ -1,4 +1,4 @@
-package main.java.org.jmath.helal_anwar.Alphabet;
+package org.java_tutorials.helal_anwar.Alphabet;
 
 public class UpperCase {
     public static String [][] space(int size){

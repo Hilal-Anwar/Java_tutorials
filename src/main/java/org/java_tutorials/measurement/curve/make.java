@@ -1,8 +1,10 @@
-package main.java.org.jmath.measurement.curve;
+package org.java_tutorials.measurement.curve;
 
-import main.java.org.jmath.measurement.polygon.n_gon.N_Gon;
-import main.java.org.jmath.measurement.polygon.quadrilateral.Quadrilateral;
-import main.java.org.jmath.measurement.polygon.quadrilateral.Rectangle;
+
+import org.java_tutorials.measurement.polygon.n_gon.N_Gon;
+import org.java_tutorials.measurement.polygon.quadrilateral.Quadrilateral;
+import org.java_tutorials.measurement.polygon.quadrilateral.Rectangle;
+
 public class make {
     public static void main(String[] args) {
         var rectangle=new Quadrilateral("(0,0)","(5,0)","(5,6)","(0,6)");

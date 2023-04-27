@@ -1,4 +1,4 @@
-package main.java.org.jmath.measurement.polygon.triangle;
+package org.java_tutorials.measurement.polygon.triangle;
 
 import java.util.TreeMap;
 

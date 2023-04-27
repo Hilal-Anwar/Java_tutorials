@@ -1,4 +1,4 @@
-package main.java.org.jmath.helal_anwar;
+package org.java_tutorials.helal_anwar;
 
 public class Pattern extends Merger {
     private String str;

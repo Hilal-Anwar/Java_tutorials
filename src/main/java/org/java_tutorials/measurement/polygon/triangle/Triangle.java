@@ -1,6 +1,7 @@
-package main.java.org.jmath.measurement.polygon.triangle;
+package org.java_tutorials.measurement.polygon.triangle;
 
-import main.java.org.jmath.measurement.polygon.Polygon;
+
+import org.java_tutorials.measurement.polygon.Polygon;
 
 public class Triangle extends Polygon {
     Triangle(String v1,String v2,String v3){

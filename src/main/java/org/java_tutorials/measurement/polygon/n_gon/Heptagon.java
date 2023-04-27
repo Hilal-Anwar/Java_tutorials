@@ -1,6 +1,7 @@
-package main.java.org.jmath.measurement.polygon.n_gon;
+package org.java_tutorials.measurement.polygon.n_gon;
 
-import main.java.org.jmath.measurement.polygon.Polygon;
+
+import org.java_tutorials.measurement.polygon.Polygon;
 
 public class Heptagon extends Polygon {
     Heptagon(String v1,String v2,String v3,String v4,String v5,String v6,String v7){
