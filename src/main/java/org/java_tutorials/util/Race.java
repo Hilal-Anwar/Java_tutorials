@@ -1,7 +1,15 @@
 package org.java_tutorials.util;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -15,8 +23,8 @@ import java.util.StringTokenizer;
  */
 public class Race {
 
-    public static void main(String[] args) {
-        LinkedHashMap<String, String> exchangeData = new LinkedHashMap<>();
+    public static void main(String[] args) throws IOException {
+        /*LinkedHashMap<String, String> exchangeData = new LinkedHashMap<>();
         HttpClient client = HttpClient.newHttpClient();
         String CURRENCY_URL = "https://open.er-api.com/v6/latest/USD";
         HttpRequest request = HttpRequest.newBuilder()
@@ -53,6 +61,20 @@ public class Race {
         } catch (IOException | InterruptedException e) {
             System.err.println("Check your connection if you are using it for first time");
             System.err.println("If you are connected to internet most recent data is used for conversion");
-        }
+        }*/
+        // Setting URL
+        String url_str = "https://open.er-api.com/v6/latest/USD";
+        // Making Request
+        URL url = new URL(url_str);
+        HttpURLConnection request = (HttpURLConnection) url.openConnection();
+        request.connect();
+        // Convert to JSON
+        JsonParser jp = new JsonParser();
+        JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent()));
+        JsonObject jsonobj = root.getAsJsonObject();
+        // Accessing object
+        String req_result = jsonobj.get("rates").getAsJsonObject().get("INR").toString();
+        System.out.println(req_result);
+        System.out.println(jsonobj.asMap());
     }
 }
