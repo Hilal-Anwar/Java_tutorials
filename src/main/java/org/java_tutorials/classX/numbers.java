@@ -1,4 +1,4 @@
-package org.java_tutorials.tutorials_12;
+package org.java_tutorials.classX;
 
 import java.util.Arrays;
 
