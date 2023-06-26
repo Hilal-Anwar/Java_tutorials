@@ -4,7 +4,7 @@ import java.util.*;
 
 public class EqualArrays {
     public static void main(String[] args) {
-        var arr = getRandomArray(20000000);
+        var arr = getRandomArrayEqual(20000000);
         var p = arr[0];
         var q = arr[1];
         //System.out.println(Arrays.toString(p));
@@ -21,7 +21,18 @@ public class EqualArrays {
         return Arrays.equals(a, b);
     }
 
-    public static int[][] getRandomArray(int size) {
+    public static int[][] getRandomArrayEqual(int size) {
+        int[] a = new int[size];
+        int[] b = new int[size];
+        for (int i = 0; i < size; i++) {
+            var x = (int) (Math.random() * size);
+            a[size - 1 - i] = x;
+            b[i] = x;
+        }
+        return new int[][]{a, b};
+    }
+
+    public static int[][] getRandomArrayUnEqual(int size) {
         int[] a = new int[size];
         int[] b = new int[size];
         for (int i = 0; i < size; i++) {

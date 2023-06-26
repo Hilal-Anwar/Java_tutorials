@@ -6,13 +6,13 @@ package org.java_tutorials.util;
  */
 public class PascalTriangles {
     public static void main(String[] args) {
-        draw_pascal_triangle(100);
+        draw_pascal_triangle(9);
     }
 
     public static void draw_pascal_triangle(int size) {
         int start = size, end = size;
         long []val={};
-        int max=(""+pascal(new long[]{1}, 0, size)[size/2]).length();
+        int max=(String.valueOf(pascal(new long[]{1}, 0, size)[size / 2])).length();
         for (int i = 0; i <= size; i++) {
             int c = 0;
             int k = 0;
@@ -20,7 +20,7 @@ public class PascalTriangles {
             for (int j = 0; j<=end; j++) {
                 if (j >= start) {
                     if (c == 0) {
-                        System.out.print(adjustSpace(""+val[k], max));
+                        System.out.print(adjustSpace(String.valueOf(val[k]), max));
                         c = 1;
                         k++;
                     } else {

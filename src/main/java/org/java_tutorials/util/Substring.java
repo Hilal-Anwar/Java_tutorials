@@ -1,4 +1,4 @@
-package main.java.org.jmath.util;
+//package main.java.org.jmath.util;
 
 /*value class Substring implements CharSequence {
     private String str;

@@ -8,8 +8,8 @@ public class DonutRotation {
     public static void main(String[] args) throws InterruptedException {
         int k;
         double A = 0, B = 0;
-        int w=1000;
-        int h=300;
+        int w=500;
+        int h=200;
         int size=h*w;
         double[] z = new double[size];
         char[] b = new char[size];

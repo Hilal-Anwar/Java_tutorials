@@ -1,4 +1,4 @@
-package main.java.org.jmath.generics;
+package org.java_tutorials.generics;
 
 public class GenericsFun {
     public static <T> Tuples<T> swap(T val1, T val2) {

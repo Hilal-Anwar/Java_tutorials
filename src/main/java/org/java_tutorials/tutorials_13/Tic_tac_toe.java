@@ -68,11 +68,13 @@ class Tic_tac_toe implements buttons {
         int algorithm = (int) (Math.random() * 2 + 1);
         if (((n == y[1] && m == x[2]) || (n == y[2] && m == x[1])) && Box[y[0]][x[0]].equals(" "))
             Box[y[0]][x[0]] = "0";
-        else if ((algorithm == 1) && ((n != y[1] && m != x[2]) || (n != y[2] && m != x[1])) && Box[y[1]][x[1]].equals(" ") && count <= 2)
+        else if ((algorithm == 1) && ((n != y[1] && m != x[2]) ||
+                (n != y[2] && m != x[1])) && Box[y[1]][x[1]].equals(" ") && count <= 2)
             Box[y[1]][x[1]] = "0";
         else if ((algorithm == 2) && (Box[y[1]][x[1]].equals(" ")))
             Box[y[1]][x[1]] = "0";
-        else if ((Box[y[0]][x[0]].equals(" ") || Box[y[0]][x[2]].equals(" ") || Box[y[2]][x[0]].equals(" ") || Box[y[2]][x[2]].equals(" ")) &&
+        else if ((Box[y[0]][x[0]].equals(" ") || Box[y[0]][x[2]].equals(" ") ||
+                Box[y[2]][x[0]].equals(" ") || Box[y[2]][x[2]].equals(" ")) &&
                 Box[y[1]][x[1]].equals("X")) {
             while (true) {
                 q = (int) (Math.random() * 4);
@@ -82,7 +84,8 @@ class Tic_tac_toe implements buttons {
                     break;
                 }
             }
-        } else if (Box[y[0]][x[1]].equals(" ") || Box[y[1]][x[0]].equals(" ") || Box[y[1]][x[2]].equals(" ") || Box[y[2]][x[1]].equals(" ")) {
+        } else if (Box[y[0]][x[1]].equals(" ") || Box[y[1]][x[0]].equals(" ") ||
+                Box[y[1]][x[2]].equals(" ") || Box[y[2]][x[1]].equals(" ")) {
             while (true) {
                 q = (int) (Math.random() * 4);
                 int[] but = b[q];
