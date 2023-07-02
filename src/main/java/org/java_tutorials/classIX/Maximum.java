@@ -1,7 +1,5 @@
-package org.java_tutorials.tution_classix;
+package org.java_tutorials.classIX;
 
-
-import org.java_tutorials.classX.Function;
 
 import java.util.Scanner;
 

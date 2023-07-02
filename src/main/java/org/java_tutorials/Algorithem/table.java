@@ -6,8 +6,8 @@ import java.util.Arrays;
 class table {
     public static void main(String[] args) {
         long a = System.currentTimeMillis();
-        //__tree_sort(/*new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}*/randomArray(10000000));
-        ____tree_sort(new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}/*randomArray(10000000)*/);
+        __tree_sort(new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}/*randomArray(10000000)*/);
+        //____tree_sort(new int[]{5, -54, 5, 5454, 5, 1, 9, -87, 26, -69, 98, 1, 3}/*randomArray(10000000)*/);
         System.out.println(System.currentTimeMillis() - a);
     }
 
