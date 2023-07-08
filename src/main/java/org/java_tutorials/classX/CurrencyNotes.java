@@ -81,11 +81,7 @@ public class CurrencyNotes {
         var f = new CurrencyNotes("₹", ty);
         System.out.println(f.getMaxPossibleNoteNumbers(896784,
                 new CurrencyLimit(ty[0], 80),
-                new CurrencyLimit(ty[1], 30),
-                new CurrencyLimit(ty[2], 186750),
-                new CurrencyLimit(ty[3], 30),
-                new CurrencyLimit(ty[4], 80),
-                new CurrencyLimit(ty[5], 30)));
+                new CurrencyLimit(ty[1], 30)));
     }
 
 }

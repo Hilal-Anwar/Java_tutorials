@@ -1,6 +1,7 @@
 package org.java_tutorials.stream;
 
 import java.util.Arrays;
+import java.util.function.IntSupplier;
 
 public class Sorting {
     public static void main(String[] args) {
@@ -9,9 +10,10 @@ public class Sorting {
         println(Arrays.toString(a));
         println(Arrays.binarySearch(a, -54));
         println(a);*/
-        Sorting s=new Sorting();
+        Sorting s = new Sorting();
         System.out.println(s.charFrequency("I love to coding"));
     }
+
     String charFrequency(String str) {
         var a = str.toCharArray();
         Arrays.sort(a);
@@ -29,5 +31,12 @@ public class Sorting {
         }
         value.append(a[a.length - 1]).append("=").append("1");
         return "{" + value + "}";
+    }
+
+    int findMax(int... list) {
+        return Arrays.
+                stream(list).
+                max().
+                orElse(0);
     }
 }

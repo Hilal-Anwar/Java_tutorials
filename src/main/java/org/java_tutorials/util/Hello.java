@@ -1,5 +1,7 @@
 package org.java_tutorials.util;
 
+
+
 import java.util.*;
 
 public class Hello {
