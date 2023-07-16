@@ -9,8 +9,8 @@ class StringFunQuestions {
     public static void main(String[] args) {
       var st=new StringFunQuestions();
       println("Number of words in your sentence are:");
-      println(st.countWords("I love to code"));
-      println(st.charFrequency("Pineapple"));
+      println(st.countWords("I love to code but not"));
+      println(st.charFrequency("Pineapple         "));
     }
     long countWords(String str){
         return Arrays.
@@ -39,6 +39,6 @@ class StringFunQuestions {
         }
         va.append(a[a.length - 1]).
                 append("=").append("1");
-        return "{"+va.toString()+"}";
+        return "{"+ va +"}";
     }
 }

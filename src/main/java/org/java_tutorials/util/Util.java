@@ -10,10 +10,12 @@ public final class Util {
     public static void println(Object object) {
         System.out.println(object);
     }
-    public static void println(Object []objects){
+
+    public static void println(Object[] objects) {
         System.out.println(Arrays.toString(objects));
     }
-    public static void println(Object [][]objects){
+
+    public static void println(Object[][] objects) {
         System.out.println(Arrays.deepToString(objects));
     }
 
@@ -106,4 +108,11 @@ public final class Util {
         return index < endIndex ? _find_min(a, index + 1, endIndex, Math.min(a[index], min),
                 a[min_index] > a[index] ? index : min_index) : new Element<Long>(min, min_index);
     }
+
+    public static <T extends Number> T findMax(T[] o) {
+        T m = o[0];
+        for (T t : o) if (m.doubleValue() < t.doubleValue()) m = t;
+        return m;
+    }
 }
+

@@ -1,12 +1,12 @@
 package org.java_tutorials.util;
 
-public class Test extends Parcel {
+public class Test {
     public static void main(String[] args) {
         String st, code;
         int k = 0;
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
-                code = "" + (i * 16 + j);
+                code = String.valueOf(i * 16 + j);
                 st = "\u001b[38;5;" + code + "m";
                 st = st + k + "\u001b[0m" + "  ";
                 String s = adjustSpace(st, code);
