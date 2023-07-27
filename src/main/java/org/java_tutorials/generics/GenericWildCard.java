@@ -27,6 +27,7 @@ public class GenericWildCard<T extends Number> {
     class BoundDemo {
         public static void main(String[] args) {
             var iob = new GenericWildCard<>(new Integer[]{1, 2, 3, 4, 5});
+
             System.out.println("The average of all elements are = " + iob.average());
             var dob = new GenericWildCard<>(new Double[]{1.0, 2.3, 3.4, 4.5, 5.7});
             System.out.println("The average of all elements are = " + dob.average());

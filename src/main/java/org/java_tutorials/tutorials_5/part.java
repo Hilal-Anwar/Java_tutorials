@@ -22,7 +22,7 @@ public class part {
         System.out.println(main.java.org.jmath.tutorials_14);
         System.out.println(Arrays.deepToString(multiply(random_array(500),random_array(500))));*/
     }
-    static int [][] multiply(int [][]a,int [][]b){
+    public static int [][] multiply(int [][]a,int [][]b){
         int [][] c=new int[a.length][b[0].length];
         for (int i = 0; i < a.length; i++) {
             int []k=a[i];

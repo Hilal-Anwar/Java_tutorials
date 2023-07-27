@@ -18,7 +18,7 @@ public class Pattern {
             for (int j = 0; j <= 2 * size; j++) {
                 if (j >= start && j <= end) {
                     if (c == 0) {
-                        System.out.print(adjustSpace("" + combination(BigInteger.valueOf(i), BigInteger.valueOf(k)), max));
+                        System.out.print(adjustSpace(combination(BigInteger.valueOf(i), BigInteger.valueOf(k)), max));
                         c = 1;
                         k++;
                     } else {

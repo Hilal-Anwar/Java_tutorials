@@ -9,9 +9,17 @@ class Tic_tac_toe implements buttons {
     String val = "X";
 
     public static void main(String[] args) {
-        System.out.println("Welcome to tic tac toe");
+        /*System.out.println("Welcome to tic tac toe");
         Tic_tac_toe game = new Tic_tac_toe();
-        game.start();
+        game.start();*/
+        Board bo=new Board(new Cursor(0,2,Colors.BLUE));
+        var board=bo.getChessBoard();
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                board[i][j] = new Box(null, false);
+            }
+        }
+        bo.draw("",20);
     }
 
     void start() {
@@ -351,3 +359,310 @@ interface buttons {
     int[] x = {2, 7, 12};
     int[] y = {1, 3, 5};
 }
+
+enum Colors {
+    RED("\033[0;31m"),   // RED
+    GREEN("\033[0;32m"),   // GREEN
+    YELLOW("\033[0;33m"),  // YELLOW
+    BLUE("\033[0;34m"),    // BLUE
+    PURPLE("\033[0;35m"),  // PURPLE
+    CYAN("\033[0;36m"),  // CYAN
+    WHITE("\033[0;97m"),  // WHITE
+    CYAN_BRIGHT("\033[0;96m"),
+    MAGENTA("\u001B[35m"),
+    ORANGE("\u001b[38;5;208m");
+    private final String color;
+
+    Colors(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+}
+
+enum Players {
+    BLACK, WHITE;
+
+    public boolean isEqual(Box token) {
+        if (token.getChessToken() == null)
+            return false;
+        else return token.getChessToken().getPiece().equals(this);
+    }
+}
+
+class Text {
+    public static String getColorText(String text, Colors colors) {
+        return colors.getColor() + text + "\33[0m";
+    }
+}
+
+class Cursor {
+    private int column;
+
+
+    private int row;
+    private final Colors colors;
+
+    public Cursor(int column, int row, Colors colors) {
+        this.column = column;
+        this.row = row;
+        this.colors = colors;
+    }
+
+    public void move_cursor_up() {
+        row = fix_row(row - 1);
+    }
+
+    public void move_cursor_down() {
+        row = fix_row(row + 1);
+    }
+
+    public void move_cursor_right() {
+        column = fix_column(column + 1);
+    }
+
+    public void move_cursor_left() {
+        column = fix_column(column - 1);
+    }
+
+    private int fix_column(int x) {
+        return x > 7 ? 0 : x < 0 ? 7 : x;
+    }
+
+    private int fix_row(int y) {
+        return y > 7 ? 0 : y < 0 ? 7 : y;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public Colors getColors() {
+        return colors;
+    }
+}
+
+enum TicMarks {
+    Cross("X"), Zero("O");
+
+    private final String text;
+
+    TicMarks(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+}
+
+class ChessToken {
+    private final TicMarks ticMarks;
+    private Players players;
+    private Colors color;
+    private int noOfMoves;
+
+    public int getNoOfMoves() {
+        return noOfMoves;
+    }
+
+    public void setNoOfMoves(int noOfMoves) {
+        this.noOfMoves = noOfMoves;
+    }
+
+    public TicMarks getChessPieceType() {
+        return ticMarks;
+    }
+
+
+    public Players getPiece() {
+        return players;
+    }
+
+    public void setPiece(Players players) {
+        this.players = players;
+    }
+
+    public ChessToken(TicMarks ticMarks, Colors color, Players players) {
+        this.ticMarks = ticMarks;
+        this.color = color;
+        this.players = players;
+    }
+
+    public Colors getColor() {
+        return color;
+    }
+
+    public void setColor(Colors color) {
+        this.color = color;
+    }
+
+    public String getText() {
+        return " " + Text.getColorText(this.ticMarks.getText(), color) + " ";
+    }
+}
+
+class Box {
+    private ChessToken chessToken;
+    private boolean selected;
+    private Colors colors = Colors.WHITE;
+
+    public Box(ChessToken chessToken, boolean selected) {
+        this.chessToken = chessToken;
+        this.selected = selected;
+    }
+
+    public ChessToken getChessToken() {
+        return chessToken;
+    }
+
+    public void setChessToken(ChessToken chessToken) {
+        this.chessToken = chessToken;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected, Colors colors) {
+        this.selected = selected;
+        this.colors = colors;
+    }
+
+    @Override
+    public String toString() {
+        return "Box{" +
+                "chessToken=" + chessToken +
+                ", selected=" + selected +
+                ", colors=" + colors +
+                '}';
+    }
+
+    public Colors getColors() {
+        return colors;
+    }
+}
+
+class Board extends Cursor {
+
+    private final int WIDTH = 6;
+    private final int HEIGHT = 6;
+    private final Box[][] chessBoard = new Box[3][3];
+
+    public Box[][] getChessBoard() {
+        return chessBoard;
+    }
+
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    public int getHeight() {
+        return HEIGHT;
+    }
+
+    public Board(Cursor cursor) {
+        super(cursor.getColumn(), cursor.getRow(), cursor.getColors());
+    }
+
+    public void draw(String message, int width) {
+        String[] a = {"╤", "═══", "╔", "╗"};
+        String[] b = {"│", "   ", "║",};
+        String[] c = {"┼", "───", "╟", "╢"};
+        String[] d = {"╧", "═══", "╚", "╝"};
+        StringBuilder chess = new StringBuilder();
+        for (int i = 0; i <= HEIGHT; i++) {
+            for (int j = 0; j <= WIDTH; j++) {
+                if (i == 0) {
+                    if (j == 0)
+                        chess.append(getText(i, j, a[2]));
+                    else if (j == WIDTH)
+                        chess.append(getText(i, j, a[3]));
+                    else chess.append(getText(i, j, a[j % 2]));
+                } else if (i == HEIGHT) {
+                    if (j == 0)
+                        chess.append(getText(i, j, d[2]));
+                    else if (j == WIDTH)
+                        chess.append(getText(i, j, d[3]));
+                    else chess.append(getText(i, j, d[j % 2]));
+                } else if (i % 2 != 0) {
+                    if (j == 0 || j == WIDTH)
+                        chess.append(getText(i, j, b[2]));
+                    else {
+                        if (j % 2 != 0 && chessBoard[i / 2][j / 2] != null &&
+                                chessBoard[i / 2][j / 2].getChessToken() != null) {
+                            chess.append(getText(i / 2, j / 2, chessBoard[i / 2][j / 2].
+                                    getChessToken().getText()));
+                        } else {
+                            chess.append(getText(i, j, b[j % 2]));
+                        }
+                        if (j % 2 == 0)
+                            b[1] = "   ";
+                    }
+                } else {
+                    if (j == 0)
+                        chess.append(getText(i, j, c[2]));
+                    else if (j == WIDTH)
+                        chess.append(getText(i, j, c[3]));
+                    else chess.append(getText(i, j, c[j % 2]));
+                }
+            }
+            chess.append("\n");
+
+        }
+        int col = width / 2 - ((WIDTH - 1) * 3) / 2;
+        System.out.println(chess.append('\n').
+                append(message).toString().indent(col));
+    }
+
+    private String getText(int i, int j, String text) {
+        var z = isSelectedBox(i, j);
+        if (isCursorPoint(i, j))
+            return Text.getColorText(text, getColors());
+        else if (z.condition()) {
+            return Text.getColorText(text, chessBoard[z.y][z.x].getColors());
+        } else return text;
+    }
+
+    private Val isSelectedBox(int i, int j) {
+        int x = j / 2;
+        int y = i / 2;
+        x = (x == WIDTH / 2) ? x - 1 : x;
+        y = (y == HEIGHT / 2) ? y - 1 : y;
+        if (chessBoard[y][x].isSelected()) {
+            return new Val(true, x, y);
+        } else {
+            int i1 = (j != 0 && j % 2 == 0) ? j / 2 - 1 : j / 2;
+            if (chessBoard[y][i1].isSelected()) {
+                return new Val(true, i1, y);
+            } else {
+                int i2 = (i != 0 && i % 2 == 0) ? i / 2 - 1 : i / 2;
+                if (chessBoard[i2][x].isSelected())
+                    return new Val(chessBoard[i2][x].isSelected(), x, i2);
+                return new Val(chessBoard[i2][i1].isSelected(), i1, i2);
+            }
+        }
+
+    }
+
+    private record Val(boolean condition, int x, int y) {
+    }
+
+
+    private boolean isCursorPoint(int i, int j) {
+        int size = 2;
+        if (((j == getColumn() * size || j == getColumn() * size + size) &&
+                (i >= getRow() * size && i <= getRow() * size + size)))
+            return true;
+        else return (i == getRow() * size || i == getRow() * size + size) &&
+                (j >= getColumn() * size && j <= getColumn() * size + size);
+    }
+}
+

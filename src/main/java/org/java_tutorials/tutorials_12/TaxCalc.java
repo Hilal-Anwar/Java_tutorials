@@ -27,7 +27,7 @@ public class TaxCalc
         try{
             return keyboard.nextInt();
         } catch (InputMismatchException e){
-            System.out.println("Input Mismatch! Please enter Numbers");
+            System.out.println("Input Mismatch! Please enter Num");
             keyboard.next();
             return inputInt(prompt, keyboard);
         }

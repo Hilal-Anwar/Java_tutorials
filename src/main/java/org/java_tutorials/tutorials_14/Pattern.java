@@ -9,12 +9,14 @@ public class Pattern {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length; j++) {
                 if (j >= i) {
-                    a[j][i] = "" + k;
+                    a[j][i] = String.valueOf(k);
                     if (i % 2 == 0)
                         k++;
                     else k--;
                 } else a[j][i] = "";
+
             }
+
             if (i % 2 == 0)
                 k = a.length;
             else k = k + 2;
