@@ -9,7 +9,7 @@ public class Pattern {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length; j++) {
                 if (j >= i) {
-                    a[j][i] = String.valueOf(k);
+                    a[j][i] = ""+k;
                     if (i % 2 == 0)
                         k++;
                     else k--;

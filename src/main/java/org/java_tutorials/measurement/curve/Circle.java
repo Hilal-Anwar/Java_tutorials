@@ -1,4 +1,4 @@
-package main.java.org.jmath.measurement.curve;
+package org.java_tutorials.measurement.curve;
 
 public class Circle {
     double radius;

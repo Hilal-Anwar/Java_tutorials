@@ -30,7 +30,7 @@ public final class ASCII {
                         (double) pixelColor.getGreen() * 0.1140;
                 final char s = negative ? returnStrNeg(gValue) :
                         returnStrPos(gValue);
-                sb.append(s);
+                sb.append(s).append(s);
             }
         }
 

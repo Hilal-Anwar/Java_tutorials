@@ -1,6 +1,5 @@
 package org.java_tutorials.classX;
 
-import org.java_tutorials.tutorials_5.part;
 import org.java_tutorials.util.Num;
 
 import java.util.Arrays;
