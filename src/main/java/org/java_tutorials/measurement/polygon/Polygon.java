@@ -76,13 +76,7 @@ abstract public class Polygon implements PolygonMeasurement
               point1=i-1;
               point2=i+1;
           }
-          double val1=((xCoordinate.get(i)-xCoordinate.get(point1))*(xCoordinate.get(i)-xCoordinate.get(point2)))+
-                  ((yCoordinate.get(i)-yCoordinate.get(point1))*(yCoordinate.get(i)-yCoordinate.get(point2)));
-          double val2=Math.sqrt(Math.pow((xCoordinate.get(point1)-xCoordinate.get(i)),2)+
-                  Math.pow((yCoordinate.get(point1)-yCoordinate.get(i)),2))*
-                  Math.sqrt(Math.pow((xCoordinate.get(point2)-xCoordinate.get(i)),2)+
-                          Math.pow((yCoordinate.get(point2)-yCoordinate.get(i)),2));
-          double angle = Math.toDegrees(Math.acos(val1 / val2));
+          double angle = getAngle(i, point1, point2);
           if (concaveVertex.contains(i)||(concaveVertex.contains(xCoordinate.size())&& i==xCoordinate.size()-1))
               hashMap.put("S"+(i+1)+"_"+"S"+(point1+1),360.0- angle);
           else
@@ -91,7 +85,17 @@ abstract public class Polygon implements PolygonMeasurement
    return hashMap;
   }
 
-  @Override
+    private double getAngle(int i, int point1, int point2) {
+        double val1=((xCoordinate.get(i)-xCoordinate.get(point1))*(xCoordinate.get(i)-xCoordinate.get(point2)))+
+                ((yCoordinate.get(i)-yCoordinate.get(point1))*(yCoordinate.get(i)-yCoordinate.get(point2)));
+        double val2=Math.sqrt(Math.pow((xCoordinate.get(point1)-xCoordinate.get(i)),2)+
+                Math.pow((yCoordinate.get(point1)-yCoordinate.get(i)),2))*
+                Math.sqrt(Math.pow((xCoordinate.get(point2)-xCoordinate.get(i)),2)+
+                        Math.pow((yCoordinate.get(point2)-yCoordinate.get(i)),2));
+        return Math.toDegrees(Math.acos(val1 / val2));
+    }
+
+    @Override
   public TreeMap<String, Double> getSides() {
       var  sides=new TreeMap<String,Double>();
       var size=xCoordinate.size();

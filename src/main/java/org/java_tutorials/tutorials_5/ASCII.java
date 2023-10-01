@@ -4,11 +4,15 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public final class ASCII {
     boolean negative;
+
 
     public ASCII() {
         this(false);
@@ -18,82 +22,60 @@ public final class ASCII {
         this.negative = negative;
     }
 
-    public String convert(final BufferedImage image) {
+    public String convert(final BufferedImage image, ArrayList<Character> c) {
         StringBuilder sb = new StringBuilder((image.getWidth() + 1)
                 * image.getHeight());
-        for (int y = 0; y < image.getHeight(); y++) {
-            if (sb.length() != 0) sb.append("\n");
-            for (int x = 0; x < image.getWidth(); x++) {
+        int k = 0;
+        for (int y = 0; y < image.getHeight(); y=y+2) {
+            if (!sb.isEmpty()) sb.append("\n");
+            for (int x = 0; x < image.getWidth(); x=x+1) {
                 Color pixelColor = new Color(image.getRGB(x, y));
                 double gValue = (double) pixelColor.getRed() * 0.2989 +
                         (double) pixelColor.getBlue() * 0.5870 +
                         (double) pixelColor.getGreen() * 0.1140;
-                final char s = negative ? returnStrNeg(gValue) :
-                        returnStrPos(gValue);
-                sb.append(s).append(s);
+                /*final char s = negative ? returnStrNeg(gValue) :
+                        returnStrPos(gValue);*/
+
+                //if (gValue >= 0 && gValue <= 256) {
+                    var cr = getColoredText((int)gValue, "" + c.get(k));
+                    sb.append(cr);
+                    k = (k < c.size() - 1) ? k + 1 : 0;
+
+                //} else sb.append(" ");
+
             }
+
         }
 
         return sb.toString();
     }
-
-    private char returnStrPos(double g) {
-        final char str;
-
-        if (g >= 230.0) {
-            str = ' ';
-        } else if (g >= 200.0) {
-            str = '.';
-        } else if (g >= 180.0) {
-            str = '*';
-        } else if (g >= 160.0) {
-            str = ':';
-        } else if (g >= 130.0) {
-            str = 'o';
-        } else if (g >= 100.0) {
-            str = '&';
-        } else if (g >= 70.0) {
-            str = '8';
-
-        } else if (g >= 50.0) {
-            str = '#';
-        } else {
-            str = ' ';
-        }
-        return str;
-
-    }
-
-    private char returnStrNeg(double g) {
-        final char str;
-
-        if (g >= 230.0) {
-            str = '@';
-        } else if (g >= 200.0) {
-            str = '#';
-        } else if (g >= 180.0) {
-            str = '8';
-        } else if (g >= 160.0) {
-            str = '&';
-        } else if (g >= 130.0) {
-            str = 'o';
-        } else if (g >= 100.0) {
-            str = ':';
-        } else if (g >= 70.0) {
-            str = '*';
-        } else if (g >= 50.0) {
-            str = '.';
-        } else {
-            str = ' ';
-        }
-        return str;
-
+    String getColoredText(int code, String s) {
+        String st = "", value;
+        int i = code / 16;
+        int j = code % 16;
+        value = String.valueOf(i * 16 + j);
+        st = "\u001b[38;5;" + value + "m";
+        st = st + s + "\u001b[0m";
+        return st;
     }
 
     public static void main(String[] args) throws IOException {
         File f = new File(args[0]);
         final BufferedImage image = ImageIO.read(f);
-        final String ascii = new ASCII().convert(image);
+        ArrayList<Character> c = new ArrayList<>();
+
+        try (Scanner reader = new Scanner(new FileReader(args[1]))) {
+            while (reader.hasNext()) {
+                var d=reader.next();
+                var t = (d+" ").toCharArray();
+                for (var y : t)
+                    c.add(y);
+            }
+
+
+        }
+        //System.out.println(c);
+        final String ascii = new ASCII().convert(image, c);
         System.out.println(ascii);
     }
 

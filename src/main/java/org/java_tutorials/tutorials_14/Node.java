@@ -22,11 +22,12 @@ class Root {
             System.out.print(node[l].value() + "  ");
         if (r != null)
             System.out.println(node[r].value() + "  ");
-        if ((l != null && r != null)) {
-            if (node[l].left() != null || node[l].right() != null)
-                print_tree(node, node[l].left(), node[l].right());
-            else if (node[r].left() != null || node[r].right() != null)
-                print_tree(node, node[r].left(), node[r].right());
-        }
+        if ((l != null && r != null))
+            if (node[l].left() != null
+                    || node[l].right() != null)
+            print_tree(node, node[l].left(), node[l].right());
+        else if (node[r].left() != null
+                || node[r].right() != null)
+            print_tree(node, node[r].left(), node[r].right());
     }
 }

@@ -6,8 +6,8 @@ package org.java_tutorials.util;
  */
 public class SierpinskiTriangle {
     public static void main(String[] args) {
-        int value = Integer.parseInt(args[0]);
-        System.out.println(sierpinski_triangle(value));
+        //int value = Integer.parseInt(args[0]);
+        System.out.println(sierpinski_triangle(/*value*/5));
     }
 
     public static String sierpinski_triangle(int size) {
@@ -23,7 +23,8 @@ public class SierpinskiTriangle {
                 if (j >= start) {
                     if (c == 0) {
                         var num = val[k];
-                        s.append(num == 1 ? (getColor(t) + num + "\33[0m") : " ");
+                        /*s.append(num == 1 ?(getColor(t) + num + "\33[0m") : " ");*/
+                        s.append(num);
                         c = 1;
                         k++;
                     } else {
@@ -46,7 +47,7 @@ public class SierpinskiTriangle {
         long[] tem = new long[a.length + 1];
         tem[0] = 1;
         for (int i = 1; i < a.length; i++) {
-            tem[i] = (a[i - 1] + a[i]) % 2;
+            tem[i] = (a[i - 1] + a[i]);
         }
         tem[a.length] = 1;
         return tem;

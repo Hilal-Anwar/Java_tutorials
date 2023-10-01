@@ -266,25 +266,33 @@ class table {
         int[] z = new int[a.length];
         int[] previous_index = new int[a.length];
         int f1 = 0, f2 = 0, f3 = 0;
-        while (f3 <= a.length) {
+        while (f3 <= a.length)
+        {
             var t = a[f1];
-            if (t[0] > 0) {
+            if (t[0] > 0)
+            {
                 previous_index[f2] = f1;
                 f1 = t[0];
                 t[0] = -1;
                 f2++;
-            } else {
-                if (t[0] == -1) {
+            }
+            else
+            {
+                if (t[0] == -1)
+                {
                     z[f3] = t[1];
                     t[0] = -2;
                     f3++;
                 }
-                if (t[2] > 0) {
+                if (t[2] > 0)
+                {
                     previous_index[f2] = f1;
                     f1 = t[2];
                     t[2] = -1;
                     f2++;
-                } else {
+                }
+                else
+                {
                     previous_index[f2] = 0;
                     f2--;
                     if (f2 < 0)

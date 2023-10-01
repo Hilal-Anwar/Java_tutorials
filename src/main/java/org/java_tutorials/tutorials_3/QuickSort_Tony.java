@@ -1,15 +1,18 @@
 package org.java_tutorials.tutorials_3;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QuickSort_Tony {
     public static void main(String[] args) {
-        int[] x =/*new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};*/randomArray1(10000000);
-        //System.out.println(Arrays.toString(x));
+        int[] x =/*new int[]{5, -54, 5, 5454, 5, 1, 9, 87, 26, 69, 98, 1, 3};*/randomArray1(10);
+        System.out.println(Arrays.toString(x));
         long start = System.currentTimeMillis();
         //sort(new int[]{5, -54, 5, 5454, 5, 1, -136, 87, 26, 69, 98, 1, 3});
         _sort(/*new int[]{5, -54, 5, 5454, 5, 1, -136, 87, 26, 69, 98, 1, 3}*/x);
         System.out.println(System.currentTimeMillis() - start);
+        System.out.println(Arrays.toString(x));
+
         //System.out.println(Arrays.toString(x));
     }
 

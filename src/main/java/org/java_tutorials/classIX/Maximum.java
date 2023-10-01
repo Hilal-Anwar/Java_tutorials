@@ -11,20 +11,20 @@ public class Maximum {
         a = in.nextInt();
         b = in.nextInt();
         c = in.nextInt();
-        int max,min=0;
-        /*
-        max=Math.max(a,Math.max(b,c));
-        min=Math.min(a,Math.min(b,c));
-        System.out.println("The maximum number is = "+max);
-        */
+        int max, min = 0;
         if (a > b && a > c)
             max = a;
         else if (b > a && b > c)
             max = b;
         else
             max = c;
-        System.out.println(max);
-        System.out.println(min);
-
+        if (a < b && a < c)
+            min = a;
+        else if (b < a && b < c)
+            min = b;
+        else
+            min = c;
+        System.out.println("The max number is "+max);
+        System.out.printf("The min number is %d",min);
     }
 }

@@ -46,19 +46,19 @@ public class part {
         }
         return c;
     }
-    public static double pow(double x,int power) {
-        var p = 1.0;
+    public static double pow(double x,int p) {
+        var v = 1.0;
         var k = x;
-        if (power >= 1)
-            while (power >= 1) {
-                if (power % 2 == 0) {
-                    k = k*k;
-                    power = power / 2;
+        if (p >= 1)
+            while (p >= 1) {
+                if (p % 2 == 0) {
+                    k *= k;
+                    p /= 2;
                 } else {
-                    p = p*k;
-                    power--;
+                    v *= k;
+                    p--;
                 }
             }
-        return p;
+        return v;
     }
 }

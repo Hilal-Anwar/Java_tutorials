@@ -3,10 +3,11 @@ package org.java_tutorials.tutorials_14;
 public class FindPrime {
     public static void main(String[] args) {
         int k = 0;
-        System.out.println( find_the_multiple_after(11,9));
-        System.out.println( find_the_multiple_before(11,9));
-        System.out.println(isPrime(188232082384791343L));
+        System.out.println(find_the_multiple_after(11, 11));
+        System.out.println(find_the_multiple_before(11, 9));
+        System.out.println(isPrime(  519855239357313120603311363837D));
     }
+
     public static boolean isPrime(double n) {
         int count = 0;
         n = Math.abs(n);
@@ -23,14 +24,16 @@ public class FindPrime {
             return false;
         int i = 23;
         while (i <= (int) Math.sqrt(n)) {
-            if (n % i == 0)
+            if (n % i == 0) {
                 count++;
+            }
             if (count > 1)
                 return false;
-            i = i + 2;
+            i += 2;
         }
         return true;
     }
+
     public static boolean isPrime(long n) {
         int count = 0;
         n = Math.abs(n);
@@ -55,43 +58,48 @@ public class FindPrime {
         }
         return true;
     }
+
     private void _findFactors(int n) {
         if (!isPrime(n)) {
             int bound = (int) Math.sqrt(n);
             for (int i = 1; i <= bound; i++) {
                 if (n % i == 0) {
-                    var b=n/i;
+                    var b = n / i;
                     System.out.println(i);
-                    if(b!=i)
+                    if (b != i)
                         System.out.println(b);
                 }
             }
         }
     }
+
     void multiple(int i, int j, int a) {
-        var x=System.currentTimeMillis();
+        var x = System.currentTimeMillis();
         while (i <= j) {
             if (i % a == 0)
                 System.out.println(i);
             i++;
         }
         System.out.println();
-        System.out.println(System.currentTimeMillis()-x);
+        System.out.println(System.currentTimeMillis() - x);
     }
+
     void _multiple(int i, int j, int a) {
-        var x=System.currentTimeMillis();
+        var x = System.currentTimeMillis();
         while (i <= j) {
             System.out.println(i);
-            i=i+a;
+            i = i + a;
         }
         System.out.println();
-        System.out.println(System.currentTimeMillis()-x);
+        System.out.println(System.currentTimeMillis() - x);
     }
-    static int  find_the_multiple_after(int of,int after){
-        return (after-after%of)+of;
+
+    static int find_the_multiple_after(int of, int after) {
+        return (after - after % of) + of;
     }
-    static int find_the_multiple_before(int of,int before) {
-    	return before-before%of;
+
+    static int find_the_multiple_before(int of, int before) {
+        return before - before % of;
     }
 }
 

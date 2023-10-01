@@ -79,8 +79,8 @@ class NameZone {
         for (int i = 1; i <= n; i++) {
             System.out.println(print_matrix());
             for (int j = 0; j <= num; j++) {
-                System.out.println("If your " + "" + i + "th " +
-                        "letter of the name present in " + "" + (j + 1) + "th " + word +
+                System.out.println("If your " + i + "th " +
+                        "letter of the name present in " + (j + 1) + "th " + word +
                         " if,yes enter 1 other wise 0 ");
                 reply = in.nextInt();
                 if (reply == 1) {

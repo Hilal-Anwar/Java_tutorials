@@ -4,14 +4,13 @@ import java.util.Scanner;
 
 public class newSwitch {
     public static void main(String[] args) {
-        System.out.println("Enter the days of week");
+        System.out.println("Enter the day of week");
         Scanner in = new Scanner(System.in);
         String day = in.nextLine();
 
         switch (day) {
-            case "Monday": {
+            case "Monday":
                 System.out.println("This the first day of the week");
-            }
                 break;
             case "Tuesday":
                 System.out.println("This the second day of the week");

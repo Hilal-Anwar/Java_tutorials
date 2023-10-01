@@ -1,5 +1,4 @@
 package org.java_tutorials.algorithem;
-
 public class a {
     public static final String STRING = "21312963";
 

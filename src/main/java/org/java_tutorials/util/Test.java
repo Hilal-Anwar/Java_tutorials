@@ -8,7 +8,8 @@ public class Test {
             for (int j = 0; j < 16; j++) {
                 code = String.valueOf(i * 16 + j);
                 st = "\u001b[38;5;" + code + "m";
-                st = st + k + "\u001b[0m" + "  ";
+                st = st + k +"r"+ "\u001b[0m" + "  ";
+                System.out.println(st);
                 String s = adjustSpace(st, code);
                 System.out.print(s);
                 k++;
