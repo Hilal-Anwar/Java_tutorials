@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class numbers {
     public static void main(String[] args) {
-        var t = randomArray(20000);
+        //var t = randomArray(20);
         //System.out.println(Arrays.toString(t));
-        hashing(t);
-        System.out.println(Arrays.toString(t));
+        //hashing(t);
+        //System.out.println(Arrays.toString(t));
+        System.out.println(order(345));
     }
 
     static String order(int n) {

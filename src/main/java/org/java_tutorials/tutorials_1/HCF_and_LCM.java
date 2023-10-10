@@ -20,8 +20,8 @@ public class HCF_and_LCM {
 			    min = max % min;
 			    max = temp;
 			}
-			System.out.println("HCF is : "+max);
-			System.out.println("LCM is : "+p/max);
+			System.out.println("HCF is : "+min);
+			System.out.println("LCM is : "+p/min);
 		}
     }
 }

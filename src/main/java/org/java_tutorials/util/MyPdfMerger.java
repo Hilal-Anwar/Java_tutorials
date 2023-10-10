@@ -1,4 +1,6 @@
+/*
 package org.java_tutorials.util;
+
 
 
 import org.apache.pdfbox.io.MemoryUsageSetting;
@@ -42,3 +44,4 @@ public class MyPdfMerger {
                 "PDF Documents merged to a single file");
     }
 }
+ */

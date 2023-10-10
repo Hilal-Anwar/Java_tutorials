@@ -9,10 +9,9 @@ public class Kaprekar {
 		}
 		a += Math.pow(10, c / 2);
 		b = a * 10;
-		return (c % 2 == 0 && (t % a + t / a) == n) || 
-				(c % 2 != 0 && (t % b + t / b) == n);
+		return (c % 2 == 0 && (t % a + t / a) == n) || (c % 2 != 0 && (t % b + t / b) == n);
 	}
-	public static void main(/*String []args*/) {
+	public static void main(String []args) {
 		System.out.println(isKaprekar(45));
 	}
 }
