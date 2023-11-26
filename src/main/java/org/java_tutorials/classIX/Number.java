@@ -1,4 +1,4 @@
-package org.java_tutorials.classX;
+package org.java_tutorials.classIX;
 
 import java.util.Scanner;
 

@@ -1,17 +1,34 @@
 package org.java_tutorials.util;
 
-/**
- * @author hilal on 31-01-2023
- * @project Java_tutorials
- */
-public class SierpinskiTriangle {
-    public static void main(String[] args) {
-        //int value = Integer.parseInt(args[0]);
+import java.util.*;
 
-        System.out.println(sierpinski_triangle(/*value*/150));
+class Fun {
+
+    public static void main(String... args) {
+        //int value = Integer.parseInt(args[0]);
+        System.out.println(triangle(15));
     }
 
-    public static String sierpinski_triangle(int size) {
+    static long[] pascal(long[] a) {
+        long[] tem = new long[a.length + 1];
+        tem[0] = 1;
+        for (int i = 1; i < a.length; i++) {
+            tem[i] = (a[i - 1] + a[i]) % 2;
+        }
+        tem[a.length] = 1;
+        return tem;
+    }
+
+    static String getColor(int i) {
+        String[] color = {
+                "\033[0;31m", "\033[0;32m",
+                "\033[0;33m", "\033[0;34m", "\033[0;35m",
+                "\033[0;36m", "\033[0;97m", "\033[0;96m"
+        };
+        return color[i];
+    }
+
+    static String triangle(int size) {
         int start = size, end = size;
         StringBuilder s = new StringBuilder();
         long[] val = {};
@@ -23,8 +40,9 @@ public class SierpinskiTriangle {
             for (int j = 0; j <= end; j++) {
                 if (j >= start) {
                     if (c == 0) {
-                        var num = val[k];
-                        s.append(num == 1 ? (getColor(t) + num + "\33[0m") : " ");
+                        long num = val[k];
+                        s.append(num == 1 ?
+                                (getColor(t) + num + "\33[0m") : " ");
                         c = 1;
                         k++;
                     } else {
@@ -41,22 +59,5 @@ public class SierpinskiTriangle {
             s.append('\n');
         }
         return s.toString();
-    }
-
-    public static long[] pascal(long[] a) {
-        long[] tem = new long[a.length + 1];
-        tem[0] = 1;
-        for (int i = 1; i < a.length; i++) {
-            tem[i] = (a[i - 1] + a[i]) % 2;
-        }
-        tem[a.length] = 1;
-        return tem;
-    }
-
-    static String getColor(int i) {
-        String[] color = {"\033[0;31m", "\033[0;32m",
-                "\033[0;33m", "\033[0;34m", "\033[0;35m",
-                "\033[0;36m", "\033[0;97m", "\033[0;96m"};
-        return color[i];
     }
 }

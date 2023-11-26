@@ -7,9 +7,6 @@ class TernaryOperator {
         Scanner in = new Scanner(System.in);
         int n;
         n = in.nextInt();
-        if (n % 2 == 0)
-            System.out.println("even number");
-        else
-            System.out.println("odd number");
+        System.out.println(n % 2 == 0 ? "even number" : "odd number");
     }
 }

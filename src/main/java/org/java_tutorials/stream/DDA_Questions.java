@@ -7,8 +7,8 @@ import static org.java_tutorials.util.Util.*;
 
 public class DDA_Questions {
     public static void main(String[] args) {
-       int a[][]=new int[3][3];
-       int b[]={5,9,6};
+       int[][] a =new int[3][3];
+       int[] b ={5,9,6};
         for (int i = 0; i < 3; i++) {
             System.out.println(b[i]);
         }

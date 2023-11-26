@@ -7,11 +7,12 @@ public class loop2 {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a number");
         int a;
-        a = in.nextInt();
         int i = 1;
-        while (i <= 10) {
-            System.out.println(i * a);
+        StringBuilder s= new StringBuilder();
+        while (i <= 100000) {
+           s.append("Helal ").append("\n").append("Hatif").append("\n");
             i = i + 1;
         }
+        System.out.println(s);
     }
 }

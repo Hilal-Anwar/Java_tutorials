@@ -12,7 +12,8 @@ public class DuckNumber {
         System.out.println("Enter a number");
         int n=scanner.nextInt();
         int s=0;
-        while(n>0){
+        while(n>0)
+        {
             if(n%10==0){
                s=1;
                break;
@@ -20,8 +21,8 @@ public class DuckNumber {
             n=n/10;
         }
         if(s==1)
-            System.out.println("org.java_tutorials.tutorials_1.DuckNumber");
+            System.out.println("DuckNumber");
         else
-            System.out.println("Not org.java_tutorials.tutorials_1.DuckNumber");
+            System.out.println("Not DuckNumber");
     }
 }

@@ -9,9 +9,9 @@ public class Matrix {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        Integer a[][] = new Integer[2][2];
-        Double b[][] = new Double[2][2];
-        Double c[][] = new Double[2][2];
+        Integer[][] a = new Integer[2][2];
+        Double[][] b = new Double[2][2];
+        Double[][] c = new Double[2][2];
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 a[i][j] = in.nextInt();
@@ -43,7 +43,7 @@ public class Matrix {
         }
     }
 
-    public static <T extends Number> Num<?>[][] multiply_matrix(T[][] a, T[][] b) {
+    public static <T extends java.lang.Number> Num<?>[][] multiply_matrix(T[][] a, T[][] b) {
         int m1 = a.length, n1 = a[0].length;
         int m2 = b.length, n2 = b[0].length;
         if (n1 != m2) {

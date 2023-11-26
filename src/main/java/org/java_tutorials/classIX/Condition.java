@@ -9,7 +9,8 @@ public class Condition {
         System.out.println("Kripya do number dale");
         a = in.nextInt();
         b = in.nextInt();
-        int max = a > b ? a : b;
-        System.out.println(a > b ? a : b);
+        if (a % 5 == 0 && b % 5 == 0)
+            System.out.println("Numbers are divisible by 5");
+        else System.out.println("Numbers are not divisible by 5");
     }
 }

@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class WordCout {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String sr, s1 = "";
+        String sr;
         sr = in.nextLine();
         System.out.println(sr);
+        sr=sr.trim();
         int l = sr.length();
         int count = 0;
         int k = 0;
