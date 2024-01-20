@@ -3,6 +3,7 @@ package org.java_tutorials.tutorials_14;
 public class FindPrime {
     public static void main(String[] args) {
         int k = 0;
+        System.out.println(isPrime(7));
         System.out.println(find_the_multiple_after(5, 40));
         System.out.println(find_the_multiple_before(11, 9));
         //System.out.println(isPrime(  519855239357313120603311363837D));

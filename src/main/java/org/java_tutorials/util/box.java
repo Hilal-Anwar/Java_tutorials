@@ -15,7 +15,7 @@ class box {
                                                                 \s
                                                                 \s
                                                                 \s
-                                
+      
                 """;
         int z = 5;
         int x = 3;

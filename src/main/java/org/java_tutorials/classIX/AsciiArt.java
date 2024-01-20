@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class AsciiArt {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int ch = 0;
-        while (true) {
-            ch = in.nextLine().charAt(0);
-            System.out.println(ch + "  " + (char) ch);
+        int ch = 1;
+        while (ch++ < 5) {
+            System.out.println("My name is zk");
         }
     }
 }

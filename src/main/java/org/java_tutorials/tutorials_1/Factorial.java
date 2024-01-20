@@ -1,5 +1,7 @@
 package org.java_tutorials.tutorials_1;
 
+import org.java_tutorials.util.AllNumbers;
+
 import java.util.Scanner;
 
 /*
