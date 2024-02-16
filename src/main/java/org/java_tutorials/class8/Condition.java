@@ -2,7 +2,7 @@ package org.java_tutorials.class8;
 
 class Faizan {
     public static void main(String[] args) {
-        String s="India is my               country";
+        String s="India is my country";
         s=s+" ";
         String s1="";
         for (int i = 0; i < s.length(); i++) {

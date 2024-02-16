@@ -7,7 +7,7 @@ public class NameAbb {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter a name");
-        String name = in.nextLine();
+        String name = "Abdul basit khan";
         name=name.trim();
         String l, m, w;
         l = "" + name.charAt(0);

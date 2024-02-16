@@ -3,7 +3,7 @@ package org.java_tutorials.tutorials_2;
 public class Decimal
 {
     public static void main(String[] args) {
-        System.out.println(no_of_digit_before_decimal(1.36));
+        System.out.println(no_of_digit_before_decimal(18.36));
     }
     static int no_of_digit_before_decimal(double x){
         System.out.println(x);
