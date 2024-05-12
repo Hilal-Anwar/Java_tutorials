@@ -12,15 +12,6 @@ public class FindPrime {
     public static boolean isPrime(double n) {
         int count = 0;
         n = Math.abs(n);
-        if ((n == 1) || (n % 2 == 0 && n != 2) ||
-                (n % 3 == 0 && n != 3) ||
-                (n % 5 == 0 && n != 5) ||
-                (n % 7 == 0 && n != 7) ||
-                (n % 11 == 0 && n != 11) ||
-                (n % 13 == 0 && n != 13) ||
-                (n % 17 == 0 && n != 17) ||
-                (n % 19 == 0 && n != 19))
-            return false;
         if (Math.sqrt(n) - Math.floor(Math.sqrt(n)) == 0)
             return false;
         int i = 23;

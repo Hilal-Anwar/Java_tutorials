@@ -1,9 +1,9 @@
 package org.java_tutorials.util;
 
 class box {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String s = """
-                                
+                               \s
                 $$$$$$$$\\       $$\\                             \s
                 $$  _____|      \\__|                            \s
                 $$ |   $$$$$$\\  $$\\ $$$$$$$$\\ $$$$$$\\  $$$$$$$\\ \s
@@ -15,8 +15,8 @@ class box {
                                                                 \s
                                                                 \s
                                                                 \s
-      
-                """;
+                     \s
+               \s""";
         int z = 5;
         int x = 3;
         int y;

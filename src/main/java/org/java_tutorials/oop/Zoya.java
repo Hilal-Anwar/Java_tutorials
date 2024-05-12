@@ -1,5 +1,6 @@
 package org.java_tutorials.oop;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Zoya {
@@ -9,6 +10,7 @@ public class Zoya {
         String s;
         String f, m;
         String l;
+        System.out.println();
         s = in.nextLine();
         f = s.substring(0, s.indexOf(' '));
         m = s.substring(s.indexOf(' ') + 1, s.lastIndexOf(' '));

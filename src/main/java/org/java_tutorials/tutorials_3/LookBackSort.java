@@ -3,7 +3,7 @@ package org.java_tutorials.tutorials_3;
 public class LookBackSort {
     public static void main(String[] args) {
         //int []num=randomArray(10); //array
-        int num[]={-20, 1, 5, 4, -16, 7, 12, 9, 59, 70};
+        int []num={-20, 1, 5, 4, -16, 7, 12, 9, 59, 70};
         for (int i = 0; i < num.length-1; i++)
         {
             for (int j = i+1; j >= 1; j--)
@@ -18,7 +18,7 @@ public class LookBackSort {
             }
         }
         for (int i = 0; i < num.length; i++) {
-            System.out.println(num[1]);
+            System.out.println(num[i]);
         }
     }
 

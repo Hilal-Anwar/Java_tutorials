@@ -3,7 +3,7 @@ package org.java_tutorials.tutorials_3;
 public class Merge_sort
 {
     public static void main(String[] args) {
-      int [][]arr=randomArray(100000000);
+      int [][]arr=randomArray(100);
       long start=System.currentTimeMillis();
       int x= ((arr.length%2==0)?arr.length/2:(arr.length+1)/2);
       for(int k=1;k<x;k++)

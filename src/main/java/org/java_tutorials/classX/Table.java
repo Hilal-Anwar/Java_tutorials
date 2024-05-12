@@ -9,6 +9,7 @@ public class Table {
     public static void main(String[] args) {
         String[][] table = new String[6][5];
         table[0]=new String[]{"Name","Age","Gender","Phone no","Email"};
+
         for (int i = 1; i < 6; i++) {
             table[i] = new String[]{"helal anwar",
                     "24",
