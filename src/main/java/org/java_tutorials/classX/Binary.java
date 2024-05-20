@@ -1,7 +1,7 @@
 package org.java_tutorials.classX;
 
-import java.util.Arrays;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class Binary {
     public static void main(String[] args) {
@@ -11,18 +11,18 @@ public class Binary {
         for (int i = 0; i < 10; i++) {
             a[i] = in.nextInt();
         }
-        //binary search
-        Arrays.sort(a);
         System.out.println("Enter the number to search");
         int n = in.nextInt();
         int c = 0;
         int lb = 0, up = 9, mid;
-        while (lb <= up) {
+        while (lb <= up)
+        {
             mid = (lb + up) / 2;
             if (a[mid] == n) {
                 c = 1;
                 break;
-            } else if (n > a[mid])
+            }
+            else if (n > a[mid])
                 lb = mid + 1;
             else if (n < a[mid])
                 up = mid - 1;

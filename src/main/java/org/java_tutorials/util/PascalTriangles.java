@@ -6,7 +6,7 @@ package org.java_tutorials.util;
  */
 public class PascalTriangles {
     public static void main(String[] args) {
-        draw_pascal_triangle(9);
+        draw_pascal_triangle(20);
     }
 
     public static void draw_pascal_triangle(int size) {
