@@ -6,7 +6,7 @@ public class EX
         Pattern p = new Pattern("K",'@',5);
         p.print();
         System.out.println();
-        p.setStr("World");
+        p.setStr("JAVA");
         p.setChar('*');
         p.print();
     }

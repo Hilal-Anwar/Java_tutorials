@@ -11,11 +11,8 @@ public class SwitchCase {
         System.out.println("Enter 4 to divide");
         System.out.println("Please enter your choice");
         int ch;
+        int a,b,d;
         ch = in.nextInt();
-        System.out.println("Enter two numbers");
-        int a, b;
-        a = in.nextInt();
-        b = in.nextInt();
         switch (ch) {
             case 1: {
                 System.out.println("You can find the area of circle");
@@ -27,14 +24,19 @@ public class SwitchCase {
                 System.out.println("Area is = "+A);
             }
             break;
-            case 2: {
-                int d;
+            case 2:
+                System.out.println("Enter two numbers");
+                a = in.nextInt();
+                b = in.nextInt();
                 d = a - b;
                 System.out.println("The difference is = " + d);
-            }
+
             break;
             case 3:
             {
+                System.out.println("Enter two numbers");
+                a = in.nextInt();
+                b = in.nextInt();
                 int p;
                 p = a * b;
                 System.out.println("The product is = " + p);
@@ -42,7 +44,9 @@ public class SwitchCase {
                 break;
             case 4:
             {
-                int d;
+                System.out.println("Enter two numbers");
+                a = in.nextInt();
+                b = in.nextInt();
                 d = a / b;
                 System.out.println("The divide is = " + d);
             }

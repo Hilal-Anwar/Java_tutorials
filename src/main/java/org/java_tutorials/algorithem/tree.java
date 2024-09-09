@@ -1,7 +1,7 @@
 package org.java_tutorials.algorithem;
 
 public class tree {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         int a = 6, b = 6;
         String[][] data = {{" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 "},
                 {" 7 ", " 8 ", " 9 ", " 10 ", " 11 ", " 12 "},
@@ -9,24 +9,34 @@ public class tree {
                 {" 19 ", " 20 ", " 21 ", " 22 ", " 23 ", " 24 "},
                 {" 25 ", " 26 ", " 27 ", " 28 ", " 29 ", " 30 "},
                 {" 31 ", " 32 ", " 33 ", " 34 ", " 35 ", " 36 "}};
-        int M = a, N = b;
-        int x = a, y = b;
-        int k_1 = 0, k_2 = 0;
-        while (M > 1 && N > 1) {
-            rectangle(data, k_1, k_2, x, y);
-            k_1++;
-            k_2++;
-            x--;
-            y--;
-            M = M - 2;
-            N = N - 2;
+        while (true) {
+            int M = a, N = b;
+            int x = a, y = b;
+            int k_1 = 0, k_2 = 0;
+            //print_array(data);
+            while (M > 1 && N > 1) {
+                rectangle(data, k_1, k_2, x, y);
+                k_1++;
+                k_2++;
+                x--;
+                y--;
+                M = M - 2;
+                N = N - 2;
+            }
+            System.out.print("\u001b[H");
+            print_array(data);
+            Thread.sleep(100);
         }
+    }
+
+    static void print_array(String[][] data) {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                System.out.print(data[i][j]);
+                System.out.print(data[i][j].trim() + " ".repeat(6 - data[i][j].trim().length()));
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     static void rectangle(String[][] ar, int k1, int k2, int x, int y) {
@@ -50,7 +60,7 @@ public class tree {
             j++;
         }
         j--;
-        l = y - 1;
+        l = y - 2;
         while (l > k2) {
             tem2 = ar[l][j];
             ar[l][j] = tem1;

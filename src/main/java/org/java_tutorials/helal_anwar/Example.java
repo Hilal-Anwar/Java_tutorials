@@ -8,9 +8,10 @@ public class Example {
         Pattern p = new Pattern(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")), '*', 5);
 
         while (!LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")).isEmpty()) {
-            System.out.print("\u001b[H");
+            clrscr();
             p.setStr(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
             p.print();
+            Thread.sleep(1000);
         }
     }
 

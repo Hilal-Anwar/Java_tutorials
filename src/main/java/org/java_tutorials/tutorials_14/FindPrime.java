@@ -5,7 +5,7 @@ public class FindPrime {
         int k = 0;
         System.out.println(isPrime(7));
         System.out.println(find_the_multiple_after(5, 40));
-        System.out.println(find_the_multiple_before(11, 9));
+        System.out.println(find_the_multiple_before(11, 123));
         //System.out.println(isPrime(  519855239357313120603311363837D));
     }
 

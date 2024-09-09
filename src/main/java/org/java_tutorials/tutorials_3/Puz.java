@@ -53,8 +53,8 @@ class Puz {
         // Draw(30, 24);
         while (true) {
             load_code_in_memory();
-            Draw(10, r);
-            r = (r < 10) ? r + 1 : 0;
+            Draw(50, r);
+            r = (r < 50) ? r + 1 : 0;
             Thread.sleep(150);
             clrscr();
         }
@@ -76,8 +76,8 @@ class Puz {
         StringBuilder shape = new StringBuilder();
         for (double i = 0; i <= 2 * R; i++) {
             for (double j = 0; j <= 2 * R; j++) {
-                // char x = (char) (Math.random() * 57 + 65);
-                String x = getChar();
+                char x = (char) (Math.random() * 57 + 65);
+                //String x = getChar();
                 if (donut(j, i, R, r))
                     shape.append(getText(x + "")).append(" ");
                 else
@@ -91,7 +91,7 @@ class Puz {
     }
 
     public static void clrscr() {
-        System.out.print("\033[H\033[J");
+        System.out.print("\u001b[H");
     }
 
     public static String getText(String s) {

@@ -114,5 +114,15 @@ public final class Util {
         for (T t : o) if (m.doubleValue() < t.doubleValue()) m = t;
         return m;
     }
+
+    public static boolean hasRepeatChar(String str) {
+        char[] arr_str = str.toCharArray();
+        Arrays.sort(arr_str);
+        for (int z = 0; z < arr_str.length - 1; z++) {
+            if (arr_str[z] == arr_str[z + 1])
+                return true;
+        }
+        return false;
+    }
 }
 
