@@ -1,7 +1,7 @@
 package org.java_tutorials.util;
 
 
-import java.util.Arrays;
+import java.util.*;
 
 import static org.java_tutorials.util.Util.println;
 
@@ -9,7 +9,7 @@ class StringFunQuestions {
     public static void main(String[] args) {
       var st=new StringFunQuestions();
       println("Number of words in your sentence are:");
-      println(st.countWords("I love to code but not      EVERYTIME"));
+      println(st.countWords("I love to code but not    3246587    .....  EVERYTIME"));
       println(st.charFrequency("Pineapple"));
     }
     long countWords(String str){

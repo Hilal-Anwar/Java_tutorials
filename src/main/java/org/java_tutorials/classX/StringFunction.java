@@ -1,6 +1,5 @@
 package org.java_tutorials.classX;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StringFunction

@@ -76,7 +76,7 @@ public class RamazanFoodList {
      }
 
      public static void main(String[] args) {
-        RamazanFoodList ramazanFoodList = new RamazanFoodList(LocalDate.parse("2022-04-03"));
+        RamazanFoodList ramazanFoodList = new RamazanFoodList(LocalDate.parse("2025-02-28"));
         ramazanFoodList.generateChart();
     }
 }
