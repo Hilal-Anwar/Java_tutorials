@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class MoshAlgorithm {
     public static void main(String[] args) {
-        System.out.println(mosh_love_algorithm("motashabehat iqbal", "helal anwar"));
+        System.out.println(mosh_love_algorithm("hanifa", "nigar"));
     }
 
     public static String mosh_love_algorithm(String name1, String name2) {
@@ -14,7 +14,7 @@ public class MoshAlgorithm {
         lovers = lovers.toLowerCase();
         var z = find_sum(charFrequency(lovers));
 
-        return "Love among " + name1 + " and " + name2 + " is = " + z.get(0) + z.get(1) + "%";
+        return "Love between " + name1 + " and " + name2 + " is = " + z.get(0) + z.get(1) + "%";
 
     }
 

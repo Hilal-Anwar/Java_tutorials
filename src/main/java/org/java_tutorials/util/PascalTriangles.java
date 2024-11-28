@@ -1,17 +1,21 @@
 package org.java_tutorials.util;
 
+import java.util.Arrays;
+
 /**
  * @author hilal on 29-01-2023
  * @project Java_tutorials
  */
 public class PascalTriangles {
     public static void main(String[] args) {
-        draw_pascal_triangle(20);
+        draw_pascal_triangle(5);
     }
 
     public static void draw_pascal_triangle(int size) {
         int start = size, end = size;
         long []val={};
+        var v=pascal(new long[]{1}, 0, size);
+        System.out.println(Arrays.toString(v));
         int max=(String.valueOf(pascal(new long[]{1}, 0, size)[size / 2])).length();
         for (int i = 0; i <= size; i++) {
             int c = 0;

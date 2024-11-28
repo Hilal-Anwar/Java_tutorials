@@ -15,7 +15,7 @@ public class RotateInnerRectangle {
             for (int i = 0; i < size / 2; i++) {
                 a.rotate(x, i);
             }
-            Thread.sleep(0);
+            Thread.sleep(50);
             System.out.print("\u001b[H");
             a.printArray(x);
         }
