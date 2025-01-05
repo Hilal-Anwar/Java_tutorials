@@ -3,20 +3,6 @@ package org.java_tutorials.mosha;
 import java.util.LinkedList;
 
 public class MoshAlgorithm {
-    public static void main(String[] args) {
-        System.out.println(mosh_love_algorithm("hanifa", "nigar"));
-    }
-
-    public static String mosh_love_algorithm(String name1, String name2) {
-        name1 = name1.replace(" ", "");
-        name2 = name2.replace(" ", "");
-        String lovers = name1.concat(name2);
-        lovers = lovers.toLowerCase();
-        var z = find_sum(charFrequency(lovers));
-
-        return "Love between " + name1 + " and " + name2 + " is = " + z.get(0) + z.get(1) + "%";
-
-    }
 
     public static LinkedList<Integer> find_sum(LinkedList<Integer> a) {
         while (a.size() > 2) {
@@ -67,5 +53,20 @@ public class MoshAlgorithm {
             list.add(1);
         }
         return list;
+    }
+
+    public static String mosh_love_algorithm(String name1, String name2) {
+        name1 = name1.replace(" ", "");
+        name2 = name2.replace(" ", "");
+        String lovers = name1.concat(name2);
+        lovers = lovers.toLowerCase();
+        var z = find_sum(charFrequency(lovers));
+
+        return "Love between " + name1 + " and " + name2 + " is = " + z.get(0) + z.get(1) + "%";
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(mosh_love_algorithm("java", "kotlin"));
     }
 }
