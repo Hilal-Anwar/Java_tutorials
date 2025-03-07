@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /*
 Question 3.
-org.java_tutorials.tutorials_1.Apple Inc. has announced the following festival discounts on the purchase of IPhones, based
+Apple Inc. has announced the following festival discounts on the purchase of IPhones, based
 on the total cost of the mobile purchased :
 Total cost Discount (in percentage)
 Less than 30000 5%

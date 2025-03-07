@@ -8,7 +8,7 @@ class HeapAlgo {
     // Driver main.java.org.jmath.tutorials_3
     public static void main(String[] args) {
         HeapAlgo obj = new HeapAlgo();
-        int[] a = {0,3,5,7};
+        int[] a = {1,3,4};
         long start = System.currentTimeMillis();
         obj.heapPermutation(a, 2);
         System.out.println(System.currentTimeMillis() - start);

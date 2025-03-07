@@ -1,6 +1,5 @@
 package org.java_tutorials.part_1.tutorials_5;
 
-import org.java_tutorials.part_2.Point;
 
 import java.io.IOException;
 
@@ -8,12 +7,6 @@ public class ClockAscii {
     public static void main(String[] args) throws InterruptedException, IOException {
         double R = 30, r = 24, p = R, q = 0;
         double k = 4, l = 0;
-        var x = new Point(100, 50);
-        for (int i = 1; i <= 60; i++) {
-            x = rotateClockWise(6, new Point(100, 100), x);
-            System.out.println(x);
-
-        }
         /*while (true) {
             LocalTime localTime = LocalTime.parse(LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss")));
             double[] h = getCoordinate(localTime.getHour() * 5, R);
@@ -112,18 +105,6 @@ public class ClockAscii {
         System.out.flush();
     }
 
-    public static Point rotateClockWise(double angle, Point center, Point point) {
-        angle = Math.toRadians(angle);
-        double x = point.x();
-        double y = point.y();
-        double X = center.x();
-        double Y = center.y();
-        double arg = Math.atan2(Y - y, X - x);
-        System.out.println(arg);
-        double d = arg - angle;
-        double sqrt = Math.sqrt((X - x) * (X - x) + (Y - y) * (Y - y));
-        System.out.println(sqrt + "  " + d);
-        return new Point(center.x() + (sqrt * Math.cos(d)), center.y() + (sqrt * Math.sin(d)));
-    }
 
 }
+

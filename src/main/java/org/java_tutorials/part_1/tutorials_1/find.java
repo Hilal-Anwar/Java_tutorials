@@ -19,7 +19,7 @@ public class find {
         surd_form(new BigInteger("5588960799022174035625"));
         System.out.println(System.currentTimeMillis() - x);
         long y = System.currentTimeMillis();
-        // _surd_form(new BigInteger("5588960799022174035625"));
+        _surd_form(new BigInteger("5588960799022174035625"));
         System.out.println(System.currentTimeMillis() - y);
     }
 

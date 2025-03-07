@@ -51,6 +51,7 @@ public class ASCIIArtGenerator {
         Graphics2D graphics = (Graphics2D) g;
         graphics.drawString(artText, 0, getBaselinePosition(g, font));
         var value=new StringBuilder();
+        System.out.println(imageWidth+"    "+textHeight);
         for (int y = 0; y < textHeight; y++) {
             StringBuilder sb = new StringBuilder();
             for (int x = 0; x < imageWidth; x++)
